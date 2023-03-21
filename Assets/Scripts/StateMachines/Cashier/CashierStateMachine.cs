@@ -13,7 +13,7 @@ public class CashierStateMachine : StateMachine
     {
         this.cashierStation = cashierStation;
         cashierStation.ReserveStation(this);
-        cashier.navMeshAgent.SetDestination(cashierStation.CashierTransform.position);
+        SwitchState(new MoveState(this, cashierStation.CashierTransform, new TakeOrderState(this)));
         isIdle = false;
         Debug.Log("take order");
     }
