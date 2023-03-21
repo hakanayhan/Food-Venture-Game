@@ -16,9 +16,7 @@ public class CustomerManager : MonoBehaviour
     private void Update()
     {
         if (_currentCustomer < _maxCustomer)
-        {
             SpawnNewCustomer();
-        }
     }
 
     private void SpawnNewCustomer()
