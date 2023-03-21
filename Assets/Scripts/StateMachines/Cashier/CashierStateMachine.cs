@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class CashierStateMachine : MonoBehaviour
+public class CashierStateMachine : StateMachine
 {
     public CashierStation cashierStation;
     public Order order;
-    public bool isIdle;
     public NavMeshAgent navMeshAgent;
 
     public void TakeOrder(CashierStation cashierStation, CashierStateMachine cashier)

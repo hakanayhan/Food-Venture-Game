@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class CustomerStateMachine : MonoBehaviour
+public class CustomerStateMachine : StateMachine
 {
     public CashierStation cashierStation;
     public NavMeshAgent navMeshAgent;
