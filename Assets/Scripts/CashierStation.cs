@@ -9,7 +9,10 @@ public class CashierStation : MonoBehaviour
     public Transform CustomerTransform;
     public Transform CashierTransform;
     public bool hasCustomer;
-    
+    public bool hasOrder;
+    public Order order;
+
+
 
     public void ReserveStation(CustomerStateMachine customer)
     {
@@ -19,5 +22,12 @@ public class CashierStation : MonoBehaviour
     public void ReserveStation(CashierStateMachine cashier)
     {
         isReservedByCashier = true;
+    }
+
+    public Order TakeOrder()
+    {
+        hasOrder = true;
+        order.customer.ShowSpeechBubble();
+        return order;
     }
 }
