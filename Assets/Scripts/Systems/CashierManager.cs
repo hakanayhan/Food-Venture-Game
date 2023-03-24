@@ -42,7 +42,7 @@ public class CashierManager : MonoBehaviour
                 {
                     if (cashier.isIdle)
                     {
-                        cashier.TakeOrder(cashierStation, cashier);
+                        cashier.TakeOrder(cashierStation);
                         return;
                     }
                 }
