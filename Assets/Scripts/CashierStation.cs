@@ -11,6 +11,7 @@ public class CashierStation : MonoBehaviour
     public bool hasCustomer;
     public bool hasOrder;
     public Order order;
+    public CustomerStateMachine customer;
 
 
 
@@ -27,7 +28,8 @@ public class CashierStation : MonoBehaviour
     public Order TakeOrder()
     {
         hasOrder = true;
-        order.customer.ShowSpeechBubble();
+        customer.Order();
+        //order.customer.ShowSpeechBubble();
         return order;
     }
 }

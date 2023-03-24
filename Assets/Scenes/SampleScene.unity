@@ -242,6 +242,7 @@ MonoBehaviour:
   CashierTransform: {fileID: 422876270}
   hasCustomer: 0
   hasOrder: 0
+  customer: {fileID: 0}
 --- !u!1 &103339145
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,6 +395,7 @@ MonoBehaviour:
   CashierTransform: {fileID: 1183215065}
   hasCustomer: 0
   hasOrder: 0
+  customer: {fileID: 0}
 --- !u!1 &295690277
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,6 +546,7 @@ MonoBehaviour:
   CashierTransform: {fileID: 2111940522}
   hasCustomer: 0
   hasOrder: 0
+  customer: {fileID: 0}
 --- !u!1 &382842543
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,6 +729,7 @@ MonoBehaviour:
   CashierTransform: {fileID: 1070737773}
   hasCustomer: 0
   hasOrder: 0
+  customer: {fileID: 0}
 --- !u!1 &531212608
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,6 +861,7 @@ MonoBehaviour:
   CashierTransform: {fileID: 900199785}
   hasCustomer: 0
   hasOrder: 0
+  customer: {fileID: 0}
 --- !u!4 &615082298
 Transform:
   m_ObjectHideFlags: 0
@@ -1057,6 +1062,7 @@ MonoBehaviour:
   CashierTransform: {fileID: 1985600787}
   hasCustomer: 0
   hasOrder: 0
+  customer: {fileID: 0}
 --- !u!1 &688395730
 GameObject:
   m_ObjectHideFlags: 0
@@ -1245,6 +1251,7 @@ MonoBehaviour:
   orderItems:
   - {fileID: 11400000, guid: 7676102718247fa4489e4a7865c567ca, type: 2}
   - {fileID: 11400000, guid: e348e87141da15949bb8d1a581b6044c, type: 2}
+  nextOrderID: 0
 --- !u!1 &758791559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1592,6 +1599,7 @@ MonoBehaviour:
   CashierTransform: {fileID: 832869578}
   hasCustomer: 0
   hasOrder: 0
+  customer: {fileID: 0}
 --- !u!4 &1065002663
 Transform:
   m_ObjectHideFlags: 0
@@ -1885,6 +1893,7 @@ MonoBehaviour:
   CashierTransform: {fileID: 1739721958}
   hasCustomer: 0
   hasOrder: 0
+  customer: {fileID: 0}
 --- !u!1 &1242989900
 GameObject:
   m_ObjectHideFlags: 0
@@ -2017,6 +2026,7 @@ MonoBehaviour:
   CashierTransform: {fileID: 1669298122}
   hasCustomer: 0
   hasOrder: 0
+  customer: {fileID: 0}
 --- !u!4 &1393393734
 Transform:
   m_ObjectHideFlags: 0
@@ -2315,6 +2325,7 @@ MonoBehaviour:
   CashierTransform: {fileID: 688395731}
   hasCustomer: 0
   hasOrder: 0
+  customer: {fileID: 0}
 --- !u!1 &1611105566
 GameObject:
   m_ObjectHideFlags: 0
