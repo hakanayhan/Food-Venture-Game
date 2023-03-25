@@ -37,6 +37,20 @@ public class CustomerStateMachine : StateMachine
     {
         this.order = order;
     }
+    public void CustomerExit()
+    {
+        SwitchState(new MoveState(this, customerManager.spawnPoint, new CustomerExitState(this)));
+    }
+    public void Despawn()
+    {
+        cashierStation.hasCustomer = false;
+        cashierStation.hasOrder = false;
+        cashierStation.isReservedByCustomer = false;
+        cashierStation.isReservedByCashier = false;
+        Destroy(gameObject);
+        customerManager.customers.Remove(this);
+    }
+
     Order GenerateOrder(CustomerStateMachine customer)
     {
         int itemToOrderIndex = Random.Range(0, customerManager.orderItems.Count);
@@ -45,7 +59,6 @@ public class CustomerStateMachine : StateMachine
         customerManager.nextOrderID++;
         Debug.Log(customer + " ordered " + itemToOrder.itemName);
         cookManager.pendingOrders.Add(order);
-        Debug.Log(cookManager.pendingOrders.Count);
         return order;
     }
 }

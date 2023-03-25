@@ -5,29 +5,27 @@ using UnityEngine;
 public class CustomerManager : MonoBehaviour
 {
     [SerializeField] private GameObject _customerPrefab;
-    [SerializeField] private Transform _spawnPoint;
+    [SerializeField] public Transform spawnPoint;
     [SerializeField] private float _maxCustomer;
     public List<CashierStation> cashierStations = new List<CashierStation>();
-    private float _currentCustomer = 0;
     public List<CustomerStateMachine> customers = new List<CustomerStateMachine>();
     public List<OrderItem> orderItems;
     public int nextOrderID = 0;
 
     private void Update()
     {
-        if (_currentCustomer < _maxCustomer)
+        if (customers.Count < _maxCustomer)
             SpawnNewCustomer();
     }
 
     private void SpawnNewCustomer()
     {
-        GameObject customerGameObject = Instantiate(_customerPrefab, _spawnPoint.position, Quaternion.identity);
+        GameObject customerGameObject = Instantiate(_customerPrefab, spawnPoint.position, Quaternion.identity);
         CustomerStateMachine customer = customerGameObject.GetComponent<CustomerStateMachine>();
         CashierStation cashierstation = FindFreeCashierstation();
         customer.AssignCashierstation(cashierstation, customer);
         cashierstation.customer = customer;
         customers.Add(customer);
-        _currentCustomer++;
     }
 
     CashierStation FindFreeCashierstation()

@@ -17,6 +17,8 @@ public class ServeOrderState : State
         //Debug.Log("Entering Serve Order State");
         Debug.Log("COOK: Served order");
         stateMachine.cashierStation.ServeOrder(stateMachine.order);
+        stateMachine.cashierStation.customer.CustomerExit();
+        stateMachine.isIdle = true;
         //stateMachine.SwitchState(new IdleState(stateMachine));
     }
 
