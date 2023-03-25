@@ -13,11 +13,13 @@ public class CashierStation : MonoBehaviour
     public CustomerStateMachine customer;
 
 
-
+    public void PlaceOrder(Order order)
+    {
+        hasCustomer = true;
+    }
     public void ReserveStation(CustomerStateMachine customer)
     {
         isReservedByCustomer = true;
-        hasCustomer = true;
     }
     public void ReserveStation(CashierStateMachine cashier)
     {

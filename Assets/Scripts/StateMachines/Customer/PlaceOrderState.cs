@@ -13,6 +13,7 @@ public class PlaceOrderState : State
 
     public override void Enter()
     {
+        stateMachine.cashierStation.PlaceOrder(stateMachine.order);
     }
 
     public override void Tick(float deltaTime)
