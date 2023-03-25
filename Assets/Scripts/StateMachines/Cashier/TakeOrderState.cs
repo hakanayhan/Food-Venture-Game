@@ -24,7 +24,6 @@ public class TakeOrderState : State
         {
             Debug.Log("Order Taken");
             Order order = stateMachine.cashierStation.TakeOrder();
-            CookManager.Instance.ReceiveOrder(order);
             stateMachine.SwitchState(new IdleState(stateMachine));
         }
     }
