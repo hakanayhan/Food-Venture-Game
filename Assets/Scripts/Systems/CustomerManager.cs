@@ -26,7 +26,6 @@ public class CustomerManager : MonoBehaviour
         CashierStation cashierstation = FindFreeCashierstation();
         customer.AssignCashierstation(cashierstation, customer);
         cashierstation.customer = customer;
-        //customer.AssignOrder(GenerateOrder(customer));
         customers.Add(customer);
         _currentCustomer++;
     }

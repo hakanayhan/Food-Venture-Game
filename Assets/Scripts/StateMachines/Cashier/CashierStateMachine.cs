@@ -10,6 +10,7 @@ public class CashierStateMachine : StateMachine
     public NavMeshAgent navMeshAgent;
     public RadialTimer radialTimer;
 
+    [HideInInspector] public WorkStation workStation;
     public void TakeOrder(CashierStation cashierStation)
     {
         this.cashierStation = cashierStation;
@@ -19,4 +20,14 @@ public class CashierStateMachine : StateMachine
         Debug.Log("take order");
     }
 
+    public void CookOrder(Order order)
+    {
+        this.order = order;
+        SwitchState(new MoveState(this, workStation.CookTransform, new CookOrderState(this)));
+    }
+
+    public void AssignWorkstation(WorkStation workStation)
+    {
+        this.workStation = workStation;
+    }
 }

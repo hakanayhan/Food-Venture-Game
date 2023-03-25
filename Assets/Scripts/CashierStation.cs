@@ -10,7 +10,6 @@ public class CashierStation : MonoBehaviour
     public Transform CashierTransform;
     public bool hasCustomer;
     public bool hasOrder;
-    public Order order;
     public CustomerStateMachine customer;
 
 
@@ -29,7 +28,12 @@ public class CashierStation : MonoBehaviour
     {
         hasOrder = true;
         customer.Order();
-        //order.customer.ShowSpeechBubble();
-        return order;
+        customer.ShowSpeechBubble();
+        Debug.Log(customer.order.orderItem);
+        return customer.order;
+    }
+
+    public void ServeOrder(Order order)
+    {
     }
 }

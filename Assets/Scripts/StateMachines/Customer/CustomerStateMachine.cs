@@ -9,10 +9,12 @@ public class CustomerStateMachine : StateMachine
     public Order order;
     public GameObject speechBubble;
     public CustomerManager customerManager;
+    public CookManager cookManager;
 
     private void Start()
     {
         customerManager = FindObjectOfType<CustomerManager>();
+        cookManager = FindObjectOfType<CookManager>();
     }
     public void AssignCashierstation(CashierStation cashierStation, CustomerStateMachine customer)
     {
@@ -42,6 +44,8 @@ public class CustomerStateMachine : StateMachine
         Order order = new Order(customerManager.nextOrderID, itemToOrder, 1, customer);
         customerManager.nextOrderID++;
         Debug.Log(customer + " ordered " + itemToOrder.itemName);
+        cookManager.pendingOrders.Add(order);
+        Debug.Log(cookManager.pendingOrders.Count);
         return order;
     }
 }

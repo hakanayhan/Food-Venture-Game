@@ -273,6 +273,7 @@ Transform:
   m_Children:
   - {fileID: 714505274}
   - {fileID: 839901853}
+  - {fileID: 1252690730}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1235,7 +1236,7 @@ MonoBehaviour:
   _customerPrefab: {fileID: 323544134899879688, guid: 08f61ad3c3b30eb4d892e5d6cf377ebc,
     type: 3}
   _spawnPoint: {fileID: 568670973}
-  _maxCustomer: 5
+  _maxCustomer: 1
   cashierStations:
   - {fileID: 278237808}
   - {fileID: 1393393733}
@@ -1250,7 +1251,6 @@ MonoBehaviour:
   customers: []
   orderItems:
   - {fileID: 11400000, guid: 7676102718247fa4489e4a7865c567ca, type: 2}
-  - {fileID: 11400000, guid: e348e87141da15949bb8d1a581b6044c, type: 2}
   nextOrderID: 0
 --- !u!1 &758791559
 GameObject:
@@ -1903,6 +1903,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1242989901}
+  - component: {fileID: 1242989902}
   m_Layer: 0
   m_Name: Station1
   m_TagString: Untagged
@@ -1923,9 +1924,73 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2101932552}
+  - {fileID: 1509863300}
   m_Father: {fileID: 382842544}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1242989902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242989900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1187abe72757c444aa35eabd6c9c5ba8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CookTransform: {fileID: 1509863300}
+  orderItem: {fileID: 11400000, guid: 7676102718247fa4489e4a7865c567ca, type: 2}
+  isBusy: 0
+--- !u!1 &1252690729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1252690730}
+  - component: {fileID: 1252690731}
+  m_Layer: 0
+  m_Name: Cook Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1252690730
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252690729}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 103339146}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1252690731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252690729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c27aa5413260c643a8cf81d4d6418fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasCooks: 0
+  workStations:
+  - {fileID: 1242989902}
+  cashierManager: {fileID: 839901854}
 --- !u!1 &1274259528
 GameObject:
   m_ObjectHideFlags: 0
@@ -2139,6 +2204,37 @@ Transform:
   m_Father: {fileID: 1592354512}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!1 &1509863299
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1509863300}
+  m_Layer: 0
+  m_Name: CookPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1509863300
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509863299}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -1.5, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1242989901}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1533906064
 GameObject:
   m_ObjectHideFlags: 0
@@ -2822,10 +2918,5 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4287469848836198721, guid: 08f61ad3c3b30eb4d892e5d6cf377ebc,
-        type: 3}
-      propertyPath: cashierStation
-      value: 
-      objectReference: {fileID: 278237808}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08f61ad3c3b30eb4d892e5d6cf377ebc, type: 3}

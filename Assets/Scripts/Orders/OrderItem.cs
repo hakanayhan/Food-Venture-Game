@@ -6,4 +6,9 @@ using UnityEngine;
 public class OrderItem : ScriptableObject
 {
     public string itemName;
+    public float itemBaseCookTime;
+    public float GetCookTime()
+    {
+        return itemBaseCookTime;
+    }
 }
