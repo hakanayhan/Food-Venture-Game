@@ -14,9 +14,9 @@ public class CashierStateMachine : StateMachine
     public void TakeOrder(CashierStation cashierStation)
     {
         this.cashierStation = cashierStation;
+        isIdle = false;
         cashierStation.ReserveStation(this);
         SwitchState(new MoveState(this, cashierStation.CashierTransform, new TakeOrderState(this)));
-        isIdle = false;
         Debug.Log("take order");
     }
 
