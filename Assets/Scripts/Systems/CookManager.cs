@@ -39,7 +39,7 @@ public class CookManager : MonoBehaviour
                     if (availableWorkstation == null)
                         continue;
 
-
+                    cashier.isIdle = false;
                     cashier.AssignWorkstation(availableWorkstation);
                     cashier.CookOrder(pendingOrders[0]);
                     pendingOrders.RemoveAt(0);
