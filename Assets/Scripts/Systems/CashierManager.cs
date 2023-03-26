@@ -49,4 +49,17 @@ public class CashierManager : MonoBehaviour
             }
         }
     }
+
+    
+    public CashierStation FindAvailableOrders()
+    {
+        foreach (CashierStation cashierStation in cashierStations)
+        {
+            if (cashierStation.hasCustomer && !cashierStation.isReservedByCashier)
+            {
+                return cashierStation;
+            }
+        }
+        return null;
+    }
 }

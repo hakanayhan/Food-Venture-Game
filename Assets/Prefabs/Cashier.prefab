@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 344180478722215178}
   - component: {fileID: 344180478722215179}
   - component: {fileID: 8483011494785061786}
+  - component: {fileID: 488163630}
   m_Layer: 0
   m_Name: Cashier
   m_TagString: Untagged
@@ -150,6 +151,24 @@ MonoBehaviour:
   cashierStation: {fileID: 0}
   navMeshAgent: {fileID: 344180478722215179}
   radialTimer: {fileID: 5076836839921754690}
+  cook: {fileID: 488163630}
+--- !u!114 &488163630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344180478722215177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0233e6cf07fff8f459130ef7217fe785, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isIdle: 0
+  workStation: {fileID: 0}
+  cookManager: {fileID: 0}
+  radialTimer: {fileID: 5076836839921754690}
+  cashierStateMachine: {fileID: 8483011494785061786}
 --- !u!1 &1147848797355406524
 GameObject:
   m_ObjectHideFlags: 0

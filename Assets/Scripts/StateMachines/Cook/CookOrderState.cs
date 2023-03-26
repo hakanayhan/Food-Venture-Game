@@ -5,11 +5,11 @@ using UnityEngine;
 // Cook State
 public class CookOrderState : State
 {
-    CashierStateMachine stateMachine;
+    CookStateMachine stateMachine;
 
     float workTimer;
 
-    public CookOrderState(CashierStateMachine stateMachine)
+    public CookOrderState(CookStateMachine stateMachine)
     {
         this.stateMachine = stateMachine;
     }
@@ -31,7 +31,8 @@ public class CookOrderState : State
         {
             Debug.Log("COOK: Serving order to Serverstation");
             stateMachine.workStation.isBusy = false;
-            stateMachine.SwitchState(new MoveState(stateMachine, stateMachine.cashierStation.CashierTransform, new ServeOrderState(stateMachine)));
+            if (!stateMachine.cookManager.hasCooks)
+                stateMachine.SwitchState(new MoveState(stateMachine, stateMachine.order.customer.cashierStation.CashierTransform, new FulfillOrderState(stateMachine.cashierStateMachine, stateMachine.order.customer.cashierStation)));
         }
     }
 

@@ -17,7 +17,7 @@ public class CookManager : MonoBehaviour
 
     private void Update()
     {
-        if(hasCooks) // check does level need cooks to cook
+        if(hasCooks)
             SpawnCook();
 
         ManageOrders();
@@ -26,24 +26,28 @@ public class CookManager : MonoBehaviour
     {
         pendingOrders.Add(order);
     }
-
+    
     public void ManageOrders()
     {
         if (pendingOrders.Count > 0)
         {
-            foreach (CashierStateMachine cashier in cashierManager.cashiers)
+            if (!hasCooks) // if cashiers are used instead of cooks
             {
-                if (cashier.isIdle)
+                foreach (CashierStateMachine cashier in cashierManager.cashiers)
                 {
-                    WorkStation availableWorkstation = FindAvailableWorkStation(pendingOrders[0].orderItem);
-                    if (availableWorkstation == null)
-                        continue;
+                    if (cashier.isIdle)
+                    {
+                        WorkStation availableWorkstation = FindAvailableWorkStation(pendingOrders[0].orderItem);
+                        if (availableWorkstation == null)
+                            continue;
 
-                    cashier.isIdle = false;
-                    cashier.AssignWorkstation(availableWorkstation);
-                    cashier.CookOrder(pendingOrders[0]);
-                    pendingOrders.RemoveAt(0);
-                    return;
+                        cashier.isIdle = false;
+                        cashier.cook.AssignWorkstation(availableWorkstation);
+                        cashier.cook.CookOrder(pendingOrders[0]);
+                        Debug.Log("pending orders" + pendingOrders.Count);
+                        pendingOrders.RemoveAt(0);
+                        return;
+                    }
                 }
             }
         }

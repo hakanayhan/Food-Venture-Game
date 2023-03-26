@@ -35,6 +35,11 @@ public class CashierStation : MonoBehaviour
         return customer.order;
     }
 
+    public void FulfillOrder()
+    {
+
+    }
+
     public void ServeOrder(Order order)
     {
     }
