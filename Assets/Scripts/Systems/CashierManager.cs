@@ -7,6 +7,7 @@ public class CashierManager : MonoBehaviour
     [SerializeField] private GameObject _cashierPrefab;
     [SerializeField] private Transform _spawnPoint;
     [SerializeField] private float _maxCashier;
+    [SerializeField] private RandomPosition _randomPos;
     public List<CashierStateMachine> cashiers = new List<CashierStateMachine>();
     public List<CashierStation> cashierStations = new List<CashierStation>();
     private float _currentCashier = 0;
@@ -26,7 +27,7 @@ public class CashierManager : MonoBehaviour
 
     private void SpawnNewCashier()
     {
-        GameObject cashierGameObject = Instantiate(_cashierPrefab, _spawnPoint.position, Quaternion.identity);
+        GameObject cashierGameObject = Instantiate(_cashierPrefab, _spawnPoint.position + _randomPos.GetRandomPos(), Quaternion.identity);
         CashierStateMachine cashier = cashierGameObject.GetComponent<CashierStateMachine>();
         _currentCashier++;
         cashiers.Add(cashier);

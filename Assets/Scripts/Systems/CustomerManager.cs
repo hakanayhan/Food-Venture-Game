@@ -7,6 +7,7 @@ public class CustomerManager : MonoBehaviour
     [SerializeField] private GameObject _customerPrefab;
     [SerializeField] public Transform spawnPoint;
     [SerializeField] private float _maxCustomer;
+    [SerializeField] private RandomPosition _randomPos;
     public List<CashierStation> cashierStations = new List<CashierStation>();
     public List<CustomerStateMachine> customers = new List<CustomerStateMachine>();
     public List<OrderItem> orderItems;
@@ -17,10 +18,9 @@ public class CustomerManager : MonoBehaviour
         if (customers.Count < _maxCustomer)
             SpawnNewCustomer();
     }
-
     private void SpawnNewCustomer()
     {
-        GameObject customerGameObject = Instantiate(_customerPrefab, spawnPoint.position, Quaternion.identity);
+        GameObject customerGameObject = Instantiate(_customerPrefab, spawnPoint.position + _randomPos.GetRandomPos(), Quaternion.identity);
         CustomerStateMachine customer = customerGameObject.GetComponent<CustomerStateMachine>();
         CashierStation cashierstation = FindFreeCashierstation();
         customer.AssignCashierstation(cashierstation, customer);
