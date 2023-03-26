@@ -50,6 +50,18 @@ public class CashierManager : MonoBehaviour
         }
     }
 
+    public bool areOrdersTaken()
+    {
+        CashierStation orders = FindAvailableOrders();
+        if (orders != null)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
     
     public CashierStation FindAvailableOrders()
     {

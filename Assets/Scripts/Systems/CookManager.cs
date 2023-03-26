@@ -37,16 +37,18 @@ public class CookManager : MonoBehaviour
                 {
                     if (cashier.isIdle)
                     {
-                        WorkStation availableWorkstation = FindAvailableWorkStation(pendingOrders[0].orderItem);
-                        if (availableWorkstation == null)
-                            continue;
+                        if (cashierManager.areOrdersTaken()) { 
+                            WorkStation availableWorkstation = FindAvailableWorkStation(pendingOrders[0].orderItem);
+                            if (availableWorkstation == null)
+                                continue;
 
-                        cashier.isIdle = false;
-                        cashier.cook.AssignWorkstation(availableWorkstation);
-                        cashier.cook.CookOrder(pendingOrders[0]);
-                        Debug.Log("pending orders" + pendingOrders.Count);
-                        pendingOrders.RemoveAt(0);
-                        return;
+                            cashier.isIdle = false;
+                            cashier.cook.AssignWorkstation(availableWorkstation);
+                            cashier.cook.CookOrder(pendingOrders[0]);
+                            Debug.Log("pending orders" + pendingOrders.Count);
+                            pendingOrders.RemoveAt(0);
+                            return;
+                        }
                     }
                 }
             }
