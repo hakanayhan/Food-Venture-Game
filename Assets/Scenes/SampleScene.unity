@@ -140,8 +140,8 @@ GameObject:
   m_Name: Station9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &13307453
 Transform:
@@ -294,8 +294,8 @@ GameObject:
   m_Name: Station1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &278237804
 Transform:
@@ -445,8 +445,8 @@ GameObject:
   m_Name: Station7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &328140104
 Transform:
@@ -628,8 +628,8 @@ GameObject:
   m_Name: Station3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &465311768
 Transform:
@@ -841,8 +841,8 @@ GameObject:
   m_Name: Station10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!114 &615082297
 MonoBehaviour:
@@ -961,8 +961,8 @@ GameObject:
   m_Name: Station8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &621012956
 Transform:
@@ -1236,7 +1236,7 @@ MonoBehaviour:
   _customerPrefab: {fileID: 323544134899879688, guid: 08f61ad3c3b30eb4d892e5d6cf377ebc,
     type: 3}
   spawnPoint: {fileID: 568670973}
-  _maxCustomer: 5
+  _maxCustomer: 10
   _randomPos: {fileID: 11400000, guid: 3dd0f78c005096345bf275c562f6bb5f, type: 2}
   cashierStations:
   - {fileID: 278237808}
@@ -1580,8 +1580,8 @@ GameObject:
   m_Name: Station5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!114 &1065002662
 MonoBehaviour:
@@ -1793,8 +1793,8 @@ GameObject:
   m_Name: Station4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1219175991
 Transform:
@@ -2072,8 +2072,8 @@ GameObject:
   m_Name: Station2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!114 &1393393733
 MonoBehaviour:
@@ -2321,8 +2321,8 @@ GameObject:
   m_Name: Station6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1592354512
 Transform:
@@ -2662,8 +2662,8 @@ GameObject:
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &2101932552
 Transform:
