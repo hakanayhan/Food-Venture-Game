@@ -37,17 +37,21 @@ public class CookManager : MonoBehaviour
                 {
                     if (cashier.isIdle)
                     {
-                        if (cashierManager.areOrdersTaken()) { 
-                            WorkStation availableWorkstation = FindAvailableWorkStation(pendingOrders[0].orderItem);
-                            if (availableWorkstation == null)
-                                continue;
+                        if (cashierManager.areOrdersTaken()) {
+                            
+                            foreach (Order pendingOrder in pendingOrders)
+                            {
+                                WorkStation availableWorkstation = FindAvailableWorkStation(pendingOrder.orderItem);
+                                if (availableWorkstation == null)
+                                    continue;
 
-                            cashier.isIdle = false;
-                            cashier.cook.AssignWorkstation(availableWorkstation);
-                            cashier.cook.CookOrder(pendingOrders[0]);
-                            Debug.Log("pending orders" + pendingOrders.Count);
-                            pendingOrders.RemoveAt(0);
-                            return;
+                                cashier.isIdle = false;
+                                cashier.cook.AssignWorkstation(availableWorkstation);
+                                cashier.cook.CookOrder(pendingOrder);
+                                Debug.Log("pending orders" + pendingOrders.Count);
+                                pendingOrders.Remove(pendingOrder);
+                                return;
+                            }
                         }
                     }
                 }
@@ -73,7 +77,7 @@ public class CookManager : MonoBehaviour
             }
         }
 
-        Debug.LogError("Workstation could not be found");
+        //Debug.LogError("Workstation could not be found");
         return null;
     }
 
