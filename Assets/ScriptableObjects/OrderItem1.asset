@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: OrderItem1
   m_EditorClassIdentifier: 
   itemName: test1
+  itemIcon: {fileID: 21300000, guid: 902ab786742b40848a66b70d83f64e76, type: 3}
+  itemBaseCookTime: 0

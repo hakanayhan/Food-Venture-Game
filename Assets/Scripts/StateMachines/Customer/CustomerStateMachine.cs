@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class CustomerStateMachine : StateMachine
 {
@@ -24,6 +24,7 @@ public class CustomerStateMachine : StateMachine
     }
     public void ShowSpeechBubble()
     {
+        speechBubble.transform.Find("Icon").GetComponent<Image>().sprite = order.orderItem.itemIcon;
         speechBubble.transform.eulerAngles = new Vector3(90, 0, 0);
         speechBubble.SetActive(true);
     }
@@ -39,6 +40,7 @@ public class CustomerStateMachine : StateMachine
     }
     public void CustomerExit()
     {
+        HideSpeechBubble();
         SwitchState(new MoveState(this, customerManager.spawnPoint, new CustomerExitState(this)));
     }
     public void Despawn()

@@ -1434,7 +1434,7 @@ MonoBehaviour:
   _cashierPrefab: {fileID: 344180478722215177, guid: d46ee72b5ea989947874c7ebc816c765,
     type: 3}
   _spawnPoint: {fileID: 531212609}
-  _maxCashier: 2
+  _maxCashier: 3
   _randomPos: {fileID: 11400000, guid: 357651f44956bab4dbfbf932744f40fd, type: 2}
   cashiers: []
   cashierStations:
@@ -2785,6 +2785,11 @@ PrefabInstance:
       propertyPath: cookManager
       value: 
       objectReference: {fileID: 1252690731}
+    - target: {fileID: 195212813558838100, guid: d46ee72b5ea989947874c7ebc816c765,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 344180478722215177, guid: d46ee72b5ea989947874c7ebc816c765,
         type: 3}
       propertyPath: m_Name
@@ -2848,6 +2853,11 @@ PrefabInstance:
     - target: {fileID: 344180478722215178, guid: d46ee72b5ea989947874c7ebc816c765,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489873617157377622, guid: d46ee72b5ea989947874c7ebc816c765,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
