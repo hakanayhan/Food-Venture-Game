@@ -10,6 +10,12 @@ public class CashierStateMachine : StateMachine
     public NavMeshAgent navMeshAgent;
     public RadialTimer radialTimer;
     public CookStateMachine cook;
+    public float cashierTakeOrderTimer;
+
+    private void Start()
+    {
+        cashierTakeOrderTimer = 2f;
+    }
 
     public void TakeOrder(CashierStation cashierStation)
     {

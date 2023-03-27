@@ -12,7 +12,7 @@ public class TakeOrderState : State
     }
     public override void Enter()
     {
-        takeOrderTimer = 5f;
+        takeOrderTimer = stateMachine.cashierTakeOrderTimer;
         stateMachine.radialTimer.StartTimer(takeOrderTimer);
     }
 
