@@ -22,6 +22,7 @@ public class FulfillOrderState : State
         Debug.Log("CASH: Delivered Order to Cashierstation");
 
         stateMachine.SwitchState(new IdleState(stateMachine));
+        cashierStation.customer.Pay();
         cashierStation.customer.CustomerExit();
     }
 

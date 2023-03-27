@@ -10,11 +10,13 @@ public class CustomerStateMachine : StateMachine
     public GameObject speechBubble;
     public CustomerManager customerManager;
     public CookManager cookManager;
+    public Wallet wallet;
 
     private void Start()
     {
         customerManager = FindObjectOfType<CustomerManager>();
         cookManager = FindObjectOfType<CookManager>();
+        wallet = FindObjectOfType<Wallet>();
     }
     public void AssignCashierstation(CashierStation cashierStation, CustomerStateMachine customer)
     {
@@ -38,6 +40,12 @@ public class CustomerStateMachine : StateMachine
     {
         this.order = order;
     }
+
+    public void Pay()
+    {
+        wallet.AddGold(order.orderItem.itemCost);
+    }
+
     public void CustomerExit()
     {
         HideSpeechBubble();
