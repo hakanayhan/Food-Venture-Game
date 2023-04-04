@@ -1,4 +1,5 @@
 # Food Venture
+## About
 Food Venture is a game where you manage a restaurant, prepare and deliver food orders to customers using workstations, earn money, and use it to upgrade your workstations, unlock new features, and expand your restaurant.
 
 ## Installation
