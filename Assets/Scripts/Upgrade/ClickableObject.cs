@@ -6,6 +6,6 @@ public class ClickableObject : MonoBehaviour
 {
     void OnMouseDown()
     {
-        transform.parent.parent.GetComponent<WorkStationUpgrader>().OnChildClicked();
+        transform.parent.parent.GetComponent<WorkstationUpgrader>().OnChildClicked();
     }
 }

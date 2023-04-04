@@ -9,7 +9,7 @@ public class UpgradeWorkstationWindow : MonoBehaviour
     public static UpgradeWorkstationWindow Instance;
     public Wallet wallet;
     [SerializeField] GameObject panel;
-    [SerializeField] WorkStationUpgrader upgrader;
+    [SerializeField] WorkstationUpgrader upgrader;
     bool isOpen;
     private double upgradeCost;
     private double itemCost;
@@ -31,7 +31,7 @@ public class UpgradeWorkstationWindow : MonoBehaviour
         wallet = FindObjectOfType<Wallet>();
     }
 
-    void LoadDataForWorkstationUpgrader(WorkStationUpgrader upgrader)
+    void LoadDataForWorkstationUpgrader(WorkstationUpgrader upgrader)
     {
         itemLevel = upgrader.orderItem.itemLevel;
         itemCost = upgrader.orderItem.itemCost;
@@ -43,7 +43,7 @@ public class UpgradeWorkstationWindow : MonoBehaviour
         upgrader.itemCostLabel.text = itemCost.ToString();
     }
 
-    public void OpenWindow(WorkStationUpgrader upgrader)
+    public void OpenWindow(WorkstationUpgrader upgrader)
     {
         this.upgrader = upgrader;
         LoadDataForWorkstationUpgrader(upgrader);

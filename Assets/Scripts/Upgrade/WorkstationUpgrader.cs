@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WorkStationUpgrader : MonoBehaviour
+public class WorkstationUpgrader : MonoBehaviour
 {
     public OrderItem orderItem;
     public Text levelLabel;

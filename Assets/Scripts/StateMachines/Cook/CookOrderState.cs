@@ -19,7 +19,7 @@ public class CookOrderState : State
         Debug.Log("Entering Cook Order State");
         workTimer = stateMachine.order.orderItem.GetCookTime();
         stateMachine.radialTimer.StartTimer(workTimer);
-        stateMachine.workStation.isBusy = true;
+        stateMachine.workstation.isBusy = true;
     }
 
     public override void Tick(float deltaTime)
@@ -30,7 +30,7 @@ public class CookOrderState : State
         if (workTimer == 0f)
         {
             Debug.Log("COOK: Serving order to Serverstation");
-            stateMachine.workStation.isBusy = false;
+            stateMachine.workstation.isBusy = false;
             if (!stateMachine.cookManager.hasCooks)
                 stateMachine.SwitchState(new MoveState(stateMachine, stateMachine.order.customer.cashierStation.CashierTransform, new FulfillOrderState(stateMachine.cashierStateMachine, stateMachine.order.customer.cashierStation)));
         }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class CookStateMachine : StateMachine
 {
     public Order order;
-    [HideInInspector] public WorkStation workStation;
+    [HideInInspector] public Workstation workstation;
     [HideInInspector] public CookManager cookManager;
     public RadialTimer radialTimer;
     public CashierStateMachine cashierStateMachine;
@@ -17,11 +17,11 @@ public class CookStateMachine : StateMachine
     public void CookOrder(Order order)
     {
         this.order = order;
-        SwitchState(new MoveState(this, workStation.CookTransform, new CookOrderState(this)));
+        SwitchState(new MoveState(this, workstation.CookTransform, new CookOrderState(this)));
     }
 
-    public void AssignWorkstation(WorkStation workStation)
+    public void AssignWorkstation(Workstation workstation)
     {
-        this.workStation = workStation;
+        this.workstation = workstation;
     }
 }

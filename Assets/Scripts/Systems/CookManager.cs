@@ -7,7 +7,7 @@ public class CookManager : MonoBehaviour
     public static CookManager Instance;
     public bool hasCooks;
     public List<Order> pendingOrders = new List<Order>();
-    public List<WorkStation> workStations;
+    public List<Workstation> workstations;
     public CashierManager cashierManager;
 
     void Awake()
@@ -41,7 +41,7 @@ public class CookManager : MonoBehaviour
                             
                             foreach (Order pendingOrder in pendingOrders)
                             {
-                                WorkStation availableWorkstation = FindAvailableWorkStation(pendingOrder.orderItem);
+                                Workstation availableWorkstation = FindAvailableWorkstation(pendingOrder.orderItem);
                                 if (availableWorkstation == null)
                                     continue;
 
@@ -60,20 +60,20 @@ public class CookManager : MonoBehaviour
     }
 
 
-    public WorkStation FindAvailableWorkStation(OrderItem orderItem)
+    public Workstation FindAvailableWorkstation(OrderItem orderItem)
     {
-        Debug.Log("Find Available Workstation out of " + workStations.Count);
-        foreach (WorkStation workStation in workStations)
+        Debug.Log("Find Available Workstation out of " + workstations.Count);
+        foreach (Workstation workstation in workstations)
         {
-            if (!workStation.gameObject.activeInHierarchy)
+            if (!workstation.gameObject.activeInHierarchy)
             {
-                 Debug.Log(workStation.name + " is not active");
+                 Debug.Log(workstation.name + " is not active");
                 continue;
             }
-            if (!workStation.isBusy && workStation.orderItem == orderItem)
+            if (!workstation.isBusy && workstation.orderItem == orderItem)
             {
-                workStation.isBusy = true;
-                return workStation;
+                workstation.isBusy = true;
+                return workstation;
             }
         }
 
