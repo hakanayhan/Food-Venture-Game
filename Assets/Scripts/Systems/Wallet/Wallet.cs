@@ -17,4 +17,10 @@ public class Wallet : MonoBehaviour
         goldAmount += gold;
         UIManager.SetGoldText(goldAmount);
     }
+
+    public void RemoveGold(double gold)
+    {
+        goldAmount -= gold;
+        UIManager.SetGoldText(goldAmount);
+    }
 }

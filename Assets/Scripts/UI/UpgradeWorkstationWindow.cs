@@ -60,7 +60,7 @@ public class UpgradeWorkstationWindow : MonoBehaviour
     {
         if(wallet.goldAmount >= upgradeCost)
         {
-            wallet.goldAmount -= upgradeCost;
+            wallet.RemoveGold(upgradeCost);
             Modifiers.Instance.UpgradeLevel(upgrader.orderItem);
             LoadDataForWorkstationUpgrader(upgrader);
         }
