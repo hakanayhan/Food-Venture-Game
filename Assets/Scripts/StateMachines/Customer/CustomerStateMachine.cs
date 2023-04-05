@@ -43,7 +43,7 @@ public class CustomerStateMachine : StateMachine
 
     public void Pay()
     {
-        wallet.AddGold(order.orderItem.itemCost);
+        wallet.AddGold(order.orderItem.GetCost());
     }
 
     public void CustomerExit()

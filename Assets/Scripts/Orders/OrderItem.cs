@@ -7,11 +7,17 @@ public class OrderItem : ScriptableObject
 {
     public string itemName;
     public Sprite itemIcon;
-    public double itemCost;
+    public double itemBaseCost;
+    public double itemBaseUpgradeCost;
     public float itemBaseCookTime;
-    public float itemLevel;
     public float GetCookTime()
     {
         return itemBaseCookTime;
+    }
+
+    public double GetCost()
+    {
+        double itemCost = itemBaseCost * Modifiers.Instance.GetOrderItemCostMultiplier(this);
+        return itemCost;
     }
 }

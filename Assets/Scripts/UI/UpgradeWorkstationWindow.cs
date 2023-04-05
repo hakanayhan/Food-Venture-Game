@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
 public class UpgradeWorkstationWindow : MonoBehaviour
 {
@@ -13,7 +11,7 @@ public class UpgradeWorkstationWindow : MonoBehaviour
     bool isOpen;
     private double upgradeCost;
     private double itemCost;
-    private float itemLevel;
+    private int itemLevel;
     private string itemName;
 
     void Awake()
@@ -33,10 +31,10 @@ public class UpgradeWorkstationWindow : MonoBehaviour
 
     void LoadDataForWorkstationUpgrader(WorkstationUpgrader upgrader)
     {
-        itemLevel = upgrader.orderItem.itemLevel;
-        itemCost = upgrader.orderItem.itemCost;
+        itemLevel = Modifiers.Instance.GetUpgradeLevel(upgrader.orderItem);
         itemName = upgrader.orderItem.itemName;
-        upgradeCost = itemCost * 5;
+        itemCost = upgrader.orderItem.GetCost();
+        upgradeCost = Modifiers.Instance.GetUpgradeCost(upgrader.orderItem);
         upgrader.levelLabel.text = "Level " + itemLevel;
         upgrader.itemNameLabel.text = itemName;
         upgrader.upgradeCostLabel.text = upgradeCost.ToString();
@@ -58,14 +56,12 @@ public class UpgradeWorkstationWindow : MonoBehaviour
             panel.SetActive(true);
         }
     }
-
     public void LvUpButton()
     {
         if(wallet.goldAmount >= upgradeCost)
         {
             wallet.goldAmount -= upgradeCost;
-            upgrader.orderItem.itemLevel++;
-            upgrader.orderItem.itemCost += 5;
+            Modifiers.Instance.UpgradeLevel(upgrader.orderItem);
             LoadDataForWorkstationUpgrader(upgrader);
         }
         else
