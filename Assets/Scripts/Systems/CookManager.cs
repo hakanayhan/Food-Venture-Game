@@ -15,6 +15,11 @@ public class CookManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        cashierManager = FindObjectOfType<CashierManager>();
+    }
+
     private void Update()
     {
         if(hasCooks)

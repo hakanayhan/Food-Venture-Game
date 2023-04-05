@@ -460,6 +460,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 103339146}
+  - component: {fileID: 103339151}
+  - component: {fileID: 103339150}
+  - component: {fileID: 103339149}
+  - component: {fileID: 103339148}
+  - component: {fileID: 103339147}
   m_Layer: 0
   m_Name: Systems
   m_TagString: Untagged
@@ -479,15 +484,124 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 714505274}
-  - {fileID: 839901853}
-  - {fileID: 1252690730}
   - {fileID: 1697711453}
-  - {fileID: 933107923}
-  - {fileID: 273753542}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &103339147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103339145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4211c851c325942a4d88a6446421f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  workstationUpgrades:
+  - orderItem: {fileID: 11400000, guid: 7676102718247fa4489e4a7865c567ca, type: 2}
+    level: 1
+    costMultiplier: 1
+    upgradeCostMultiplier: 1
+  - orderItem: {fileID: 11400000, guid: e348e87141da15949bb8d1a581b6044c, type: 2}
+    level: 1
+    costMultiplier: 1
+    upgradeCostMultiplier: 1
+--- !u!114 &103339148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103339145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d9d3be06c8f4504db6cc3298b527e5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIManager: {fileID: 1164598636}
+  goldAmount: 0
+--- !u!114 &103339149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103339145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c27aa5413260c643a8cf81d4d6418fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasCooks: 0
+  workstations:
+  - {fileID: 1242989902}
+  - {fileID: 1828663058}
+  cashierManager: {fileID: 0}
+--- !u!114 &103339150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103339145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6738824860ee88e4a8702928c29d69e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cashierPrefab: {fileID: 344180478722215177, guid: d46ee72b5ea989947874c7ebc816c765,
+    type: 3}
+  _spawnPoint: {fileID: 531212609}
+  _maxCashier: 4
+  _randomPos: {fileID: 11400000, guid: 357651f44956bab4dbfbf932744f40fd, type: 2}
+  cashiers: []
+  cashierStations:
+  - {fileID: 278237808}
+  - {fileID: 1393393733}
+  - {fileID: 465311772}
+  - {fileID: 1219175995}
+  - {fileID: 1065002662}
+  - {fileID: 1592354516}
+  - {fileID: 328140108}
+  - {fileID: 621012960}
+  - {fileID: 13307457}
+  - {fileID: 615082297}
+--- !u!114 &103339151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103339145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4700c50d7f767645820ca76ad30f111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _customerPrefab: {fileID: 323544134899879688, guid: 08f61ad3c3b30eb4d892e5d6cf377ebc,
+    type: 3}
+  spawnPoint: {fileID: 568670973}
+  _maxCustomer: 10
+  _randomPos: {fileID: 11400000, guid: 3dd0f78c005096345bf275c562f6bb5f, type: 2}
+  cashierStations:
+  - {fileID: 278237808}
+  - {fileID: 1393393733}
+  - {fileID: 465311772}
+  - {fileID: 1219175995}
+  - {fileID: 1065002662}
+  - {fileID: 1592354516}
+  - {fileID: 328140108}
+  - {fileID: 621012960}
+  - {fileID: 13307457}
+  - {fileID: 615082297}
+  customers: []
+  orderItems:
+  - {fileID: 11400000, guid: 7676102718247fa4489e4a7865c567ca, type: 2}
+  - {fileID: 11400000, guid: e348e87141da15949bb8d1a581b6044c, type: 2}
+  nextOrderID: 0
 --- !u!1 &106854115
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,59 +1007,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273138873}
   m_CullTransparentMesh: 1
---- !u!1 &273753541
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 273753542}
-  - component: {fileID: 273753543}
-  m_Layer: 0
-  m_Name: Modifiers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &273753542
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 273753541}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 103339146}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &273753543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 273753541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee4211c851c325942a4d88a6446421f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  workstationUpgrades:
-  - orderItem: {fileID: 11400000, guid: 7676102718247fa4489e4a7865c567ca, type: 2}
-    level: 1
-    costMultiplier: 1
-    upgradeCostMultiplier: 1
-  - orderItem: {fileID: 11400000, guid: e348e87141da15949bb8d1a581b6044c, type: 2}
-    level: 1
-    costMultiplier: 1
-    upgradeCostMultiplier: 1
 --- !u!1 &278237803
 GameObject:
   m_ObjectHideFlags: 0
@@ -2551,71 +2612,6 @@ Transform:
   m_Father: {fileID: 1592354512}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &714505273
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 714505274}
-  - component: {fileID: 714505275}
-  m_Layer: 0
-  m_Name: Customer Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &714505274
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 714505273}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 103339146}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &714505275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 714505273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4700c50d7f767645820ca76ad30f111, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _customerPrefab: {fileID: 323544134899879688, guid: 08f61ad3c3b30eb4d892e5d6cf377ebc,
-    type: 3}
-  spawnPoint: {fileID: 568670973}
-  _maxCustomer: 10
-  _randomPos: {fileID: 11400000, guid: 3dd0f78c005096345bf275c562f6bb5f, type: 2}
-  cashierStations:
-  - {fileID: 278237808}
-  - {fileID: 1393393733}
-  - {fileID: 465311772}
-  - {fileID: 1219175995}
-  - {fileID: 1065002662}
-  - {fileID: 1592354516}
-  - {fileID: 328140108}
-  - {fileID: 621012960}
-  - {fileID: 13307457}
-  - {fileID: 615082297}
-  customers: []
-  orderItems:
-  - {fileID: 11400000, guid: 7676102718247fa4489e4a7865c567ca, type: 2}
-  - {fileID: 11400000, guid: e348e87141da15949bb8d1a581b6044c, type: 2}
-  nextOrderID: 0
 --- !u!1 &723452506
 GameObject:
   m_ObjectHideFlags: 0
@@ -3355,67 +3351,6 @@ Transform:
   m_Father: {fileID: 947558265}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &839901852
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 839901853}
-  - component: {fileID: 839901854}
-  m_Layer: 0
-  m_Name: Cashier Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &839901853
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 839901852}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 103339146}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &839901854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 839901852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6738824860ee88e4a8702928c29d69e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cashierPrefab: {fileID: 344180478722215177, guid: d46ee72b5ea989947874c7ebc816c765,
-    type: 3}
-  _spawnPoint: {fileID: 531212609}
-  _maxCashier: 4
-  _randomPos: {fileID: 11400000, guid: 357651f44956bab4dbfbf932744f40fd, type: 2}
-  cashiers: []
-  cashierStations:
-  - {fileID: 278237808}
-  - {fileID: 1393393733}
-  - {fileID: 465311772}
-  - {fileID: 1219175995}
-  - {fileID: 1065002662}
-  - {fileID: 1592354516}
-  - {fileID: 328140108}
-  - {fileID: 621012960}
-  - {fileID: 13307457}
-  - {fileID: 615082297}
 --- !u!1 &855236697
 GameObject:
   m_ObjectHideFlags: 0
@@ -4010,52 +3945,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909654034}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &933107922
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 933107923}
-  - component: {fileID: 933107924}
-  m_Layer: 0
-  m_Name: Wallet
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &933107923
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 933107922}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 103339146}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &933107924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 933107922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d9d3be06c8f4504db6cc3298b527e5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UIManager: {fileID: 1164598636}
-  goldAmount: 0
 --- !u!1 &947558264
 GameObject:
   m_ObjectHideFlags: 0
@@ -4846,55 +4735,6 @@ MonoBehaviour:
   CookTransform: {fileID: 1509863300}
   orderItem: {fileID: 11400000, guid: 7676102718247fa4489e4a7865c567ca, type: 2}
   isBusy: 0
---- !u!1 &1252690729
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1252690730}
-  - component: {fileID: 1252690731}
-  m_Layer: 0
-  m_Name: Cook Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1252690730
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1252690729}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 103339146}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1252690731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1252690729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c27aa5413260c643a8cf81d4d6418fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hasCooks: 0
-  workstations:
-  - {fileID: 1242989902}
-  - {fileID: 1828663058}
-  cashierManager: {fileID: 839901854}
 --- !u!1 &1274259528
 GameObject:
   m_ObjectHideFlags: 0
@@ -6433,7 +6273,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 103339146}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1732605646
 GameObject:
@@ -8493,7 +8333,7 @@ PrefabInstance:
     - target: {fileID: 488163630, guid: d46ee72b5ea989947874c7ebc816c765, type: 3}
       propertyPath: cookManager
       value: 
-      objectReference: {fileID: 1252690731}
+      objectReference: {fileID: 0}
     - target: {fileID: 344180478722215177, guid: d46ee72b5ea989947874c7ebc816c765,
         type: 3}
       propertyPath: m_Name
