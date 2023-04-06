@@ -7,6 +7,7 @@ public class OrderItem : ScriptableObject
 {
     public string itemName;
     public Sprite itemIcon;
+    public Material itemMaterial;
     public double itemBaseCost;
     public double itemBaseUpgradeCost;
     public float itemBaseCookTime;

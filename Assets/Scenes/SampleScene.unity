@@ -8330,10 +8330,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 488163630, guid: d46ee72b5ea989947874c7ebc816c765, type: 3}
-      propertyPath: cookManager
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 344180478722215177, guid: d46ee72b5ea989947874c7ebc816c765,
         type: 3}
       propertyPath: m_Name

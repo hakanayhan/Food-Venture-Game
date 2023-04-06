@@ -32,7 +32,11 @@ public class CookOrderState : State
             Debug.Log("COOK: Serving order to Serverstation");
             stateMachine.workstation.isBusy = false;
             if (!stateMachine.cookManager.hasCooks)
+            {
+                stateMachine.carriedItem.GetComponent<MeshRenderer>().material = stateMachine.order.orderItem.itemMaterial;
+                stateMachine.carriedItem.SetActive(true);
                 stateMachine.SwitchState(new MoveState(stateMachine, stateMachine.order.customer.cashierStation.CashierTransform, new FulfillOrderState(stateMachine.cashierStateMachine, stateMachine.order.customer.cashierStation)));
+            }
         }
     }
 

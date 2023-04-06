@@ -8,6 +8,7 @@ public class CookStateMachine : StateMachine
     [HideInInspector] public Workstation workstation;
     [HideInInspector] public CookManager cookManager;
     public RadialTimer radialTimer;
+    public GameObject carriedItem;
     public CashierStateMachine cashierStateMachine;
 
     private void Start()
