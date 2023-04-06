@@ -11,8 +11,19 @@ public class WorkstationUpgrader : MonoBehaviour
     public Text itemCostLabel;
     public Text upgradeCostLabel;
 
-    public void OnChildClicked()
+    public Text unlockUpgradeLabel;
+    public GameObject station1GameObject;
+    public GameObject unlockGameObject;
+
+    public void OnChildClicked(bool isItUnlocker)
     {
-        UpgradeWorkstationWindow.Instance.OpenWindow(this);
+        if (isItUnlocker)
+        {
+            UnlockWorkstationWindow.Instance.OpenWindow(this);
+        }
+        else
+        {
+            UpgradeWorkstationWindow.Instance.OpenWindow(this);
+        }
     }
 }

@@ -40,4 +40,11 @@ public class CustomerManager : MonoBehaviour
         Debug.LogError("No free CashierStations");
         return null;
     }
+
+    public void AddItem(OrderItem orderItem)
+    {
+        bool alreadyExist = orderItems.Contains(orderItem);
+        if (!alreadyExist)
+            orderItems.Add(orderItem);
+    }
 }

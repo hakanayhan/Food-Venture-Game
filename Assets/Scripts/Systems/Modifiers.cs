@@ -39,6 +39,11 @@ public class Modifiers : MonoBehaviour
         WorkstationUpgrades upgrades = GetWorkstationUpgradesForOrderItem(orderItem);
         return (orderItem.itemBaseUpgradeCost * upgrades.upgradeCostMultiplier);
     }
+    public double GetUnlockCost(OrderItem orderItem)
+    {
+        WorkstationUpgrades upgrades = GetWorkstationUpgradesForOrderItem(orderItem);
+        return upgrades.unlockCost;
+    }
 
     public float GetOrderItemCostMultiplier(OrderItem orderItem)
     {
@@ -46,11 +51,14 @@ public class Modifiers : MonoBehaviour
         return upgrades.costMultiplier;
     }
 
-    public void UpgradeLevel(OrderItem orderItem)
+    public void UpgradeLevel(OrderItem orderItem, bool increaseCosts = true)
     {
         WorkstationUpgrades upgrades = GetWorkstationUpgradesForOrderItem(orderItem);
-        IncreaseCostMultiplier(orderItem);
-        IncreaseUpgradeCostMultiplier(orderItem);
+        if (increaseCosts)
+        {
+            IncreaseCostMultiplier(orderItem);
+            IncreaseUpgradeCostMultiplier(orderItem);
+        }
         upgrades.level++;
     }
     void IncreaseCostMultiplier(OrderItem orderItem)
@@ -72,4 +80,5 @@ public class Modifiers : MonoBehaviour
     public int level;
     public float costMultiplier;
     public float upgradeCostMultiplier;
+    public float unlockCost;
 }
