@@ -8,6 +8,7 @@ public class UpgradeWorkstationWindow : MonoBehaviour
     public Wallet wallet;
     [SerializeField] GameObject panel;
     [SerializeField] WorkstationUpgrader upgrader;
+    [SerializeField] ProgressBar progressBar;
     bool isOpen;
     private double upgradeCost;
     private double itemCost;
@@ -35,6 +36,8 @@ public class UpgradeWorkstationWindow : MonoBehaviour
         itemName = upgrader.orderItem.itemName;
         itemCost = upgrader.orderItem.GetCost();
         upgradeCost = Modifiers.Instance.GetUpgradeCost(upgrader.orderItem);
+        float progress = (itemLevel % 10f) / 10;
+        progressBar.SetFillAmount(progress);
         upgrader.levelLabel.text = "Level " + itemLevel;
         upgrader.itemNameLabel.text = itemName;
         upgrader.upgradeCostLabel.text = upgradeCost.ToString();
