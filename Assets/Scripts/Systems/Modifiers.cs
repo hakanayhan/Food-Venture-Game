@@ -45,7 +45,7 @@ public class Modifiers : MonoBehaviour
         return upgrades.unlockCost;
     }
 
-    public float GetOrderItemCostMultiplier(OrderItem orderItem)
+    public double GetOrderItemCostMultiplier(OrderItem orderItem)
     {
         WorkstationUpgrades upgrades = GetWorkstationUpgradesForOrderItem(orderItem);
         return upgrades.costMultiplier;
@@ -54,23 +54,31 @@ public class Modifiers : MonoBehaviour
     public void UpgradeLevel(OrderItem orderItem, bool increaseCosts = true)
     {
         WorkstationUpgrades upgrades = GetWorkstationUpgradesForOrderItem(orderItem);
+        upgrades.level++;
         if (increaseCosts)
         {
+            float checkRank = (upgrades.level % 10f) / 10;
+            if (checkRank == 0)
+            {
+                upgrades.costMultiplyRate = 2;
+                upgrades.upgradeCostMultiplyRate -= 0.9;
+            }
             IncreaseCostMultiplier(orderItem);
             IncreaseUpgradeCostMultiplier(orderItem);
         }
-        upgrades.level++;
     }
     void IncreaseCostMultiplier(OrderItem orderItem)
     {
         WorkstationUpgrades upgrades = GetWorkstationUpgradesForOrderItem(orderItem);
-        upgrades.costMultiplier *= 1.5f;
+        upgrades.costMultiplier = Math.Round(upgrades.costMultiplier * upgrades.costMultiplyRate, 2);
+        upgrades.costMultiplyRate -= 0.05;
     }
 
     void IncreaseUpgradeCostMultiplier(OrderItem orderItem)
     {
         WorkstationUpgrades upgrades = GetWorkstationUpgradesForOrderItem(orderItem);
-        upgrades.upgradeCostMultiplier *= 2.5f;
+        upgrades.upgradeCostMultiplier = Math.Round(upgrades.upgradeCostMultiplier * upgrades.upgradeCostMultiplyRate, 2);
+        upgrades.upgradeCostMultiplyRate += 0.1;
     }
 }
 
@@ -78,7 +86,10 @@ public class Modifiers : MonoBehaviour
 {
     public OrderItem orderItem;
     public int level;
-    public float costMultiplier;
-    public float upgradeCostMultiplier;
     public float unlockCost;
+    public double costMultiplier;
+    public double upgradeCostMultiplier;
+    public double costMultiplyRate = 2;
+    public double upgradeCostMultiplyRate = 1.4;
+
 }

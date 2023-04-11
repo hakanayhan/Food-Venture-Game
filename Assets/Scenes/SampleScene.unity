@@ -503,14 +503,18 @@ MonoBehaviour:
   workstationUpgrades:
   - orderItem: {fileID: 11400000, guid: 7676102718247fa4489e4a7865c567ca, type: 2}
     level: 0
+    unlockCost: 5
     costMultiplier: 1
     upgradeCostMultiplier: 1
-    unlockCost: 5
+    costMultiplyRate: 2
+    upgradeCostMultiplyRate: 1.4
   - orderItem: {fileID: 11400000, guid: e348e87141da15949bb8d1a581b6044c, type: 2}
     level: 0
+    unlockCost: 50
     costMultiplier: 1
     upgradeCostMultiplier: 1
-    unlockCost: 50
+    costMultiplyRate: 2
+    upgradeCostMultiplyRate: 1.4
 --- !u!114 &103339148
 MonoBehaviour:
   m_ObjectHideFlags: 0
