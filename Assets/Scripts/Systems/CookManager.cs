@@ -53,7 +53,7 @@ public class CookManager : MonoBehaviour
                                 cashier.isIdle = false;
                                 cashier.cook.AssignWorkstation(availableWorkstation);
                                 cashier.cook.CookOrder(pendingOrder);
-                                Debug.Log("pending orders" + pendingOrders.Count);
+                                //Debug.Log("pending orders" + pendingOrders.Count);
                                 pendingOrders.Remove(pendingOrder);
                                 return;
                             }
@@ -67,12 +67,12 @@ public class CookManager : MonoBehaviour
 
     public Workstation FindAvailableWorkstation(OrderItem orderItem)
     {
-        Debug.Log("Find Available Workstation out of " + workstations.Count);
+        //Debug.Log("Find Available Workstation out of " + workstations.Count);
         foreach (Workstation workstation in workstations)
         {
             if (!workstation.gameObject.activeInHierarchy)
             {
-                 Debug.Log(workstation.name + " is not active");
+                 //Debug.Log(workstation.name + " is not active");
                 continue;
             }
             if (!workstation.isBusy && workstation.orderItem == orderItem)
