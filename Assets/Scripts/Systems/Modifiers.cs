@@ -7,6 +7,7 @@ public class Modifiers : MonoBehaviour
 {
     public static Modifiers Instance;
     public List<WorkstationUpgrades> workstationUpgrades;
+    [HideInInspector]public CookManager cookManager;
     void Awake()
     {
         if (Instance != null)
@@ -15,6 +16,11 @@ public class Modifiers : MonoBehaviour
             return;
         }
         Instance = this;
+    }
+
+    private void Start()
+    {
+        cookManager = FindObjectOfType<CookManager>();
     }
     public WorkstationUpgrades GetWorkstationUpgradesForOrderItem(OrderItem orderItem)
     {
@@ -51,19 +57,25 @@ public class Modifiers : MonoBehaviour
         return upgrades.costMultiplier;
     }
 
-    public void UpgradeLevel(OrderItem orderItem, bool increaseCosts = true)
+    public void UpgradeLevel(WorkstationUpgrader upgrader, bool increaseCosts = true)
     {
-        WorkstationUpgrades upgrades = GetWorkstationUpgradesForOrderItem(orderItem);
+        WorkstationUpgrades upgrades = GetWorkstationUpgradesForOrderItem(upgrader.orderItem);
         upgrades.level++;
         if (increaseCosts)
         {
             float checkRank = (upgrades.level % 10f) / 10;
             if (checkRank == 0)
             {
+                if (upgrades.activeWorkstations < upgrader.stationGameObjects.Count)
+                {
+                    upgrader.stationGameObjects[upgrades.activeWorkstations].SetActive(true);
+                    cookManager.workstations.Add(upgrader.stationGameObjects[upgrades.activeWorkstations].GetComponent<Workstation>());
+                    upgrades.activeWorkstations++;
+                }
                 upgrades.costMultiplier *= 2;
             }
-            IncreaseCostMultiplier(orderItem);
-            IncreaseUpgradeCostMultiplier(orderItem);
+            IncreaseCostMultiplier(upgrader.orderItem);
+            IncreaseUpgradeCostMultiplier(upgrader.orderItem);
         }
     }
     void IncreaseCostMultiplier(OrderItem orderItem)
@@ -95,4 +107,5 @@ public class Modifiers : MonoBehaviour
     public double costMultiplyRate = 2;
     public double minCostMultiplyRate = 1.25;
     public double upgradeCostMultiplyRate = 1.4;
+    public int activeWorkstations = 1;
 }

@@ -55,9 +55,9 @@ public class UnlockWorkstationWindow : MonoBehaviour
     public void Unlock()
     {
         customerManager.AddItem(upgrader.orderItem);
-        Modifiers.Instance.UpgradeLevel(upgrader.orderItem, false);
+        Modifiers.Instance.UpgradeLevel(upgrader, false);
         upgrader.unlockGameObject.SetActive(false);
-        upgrader.station1GameObject.SetActive(true);
+        upgrader.stationGameObjects[0].SetActive(true);
         isOpen = false;
         panel.SetActive(false);
     }

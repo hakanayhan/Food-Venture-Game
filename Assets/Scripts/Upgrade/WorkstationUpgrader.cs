@@ -12,7 +12,7 @@ public class WorkstationUpgrader : MonoBehaviour
     public Text upgradeCostLabel;
 
     public Text unlockUpgradeLabel;
-    public GameObject station1GameObject;
+    public List <GameObject> stationGameObjects;
     public GameObject unlockGameObject;
 
     public void OnChildClicked(bool isItUnlocker)
