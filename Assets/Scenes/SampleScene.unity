@@ -507,6 +507,7 @@ MonoBehaviour:
     costMultiplier: 1
     upgradeCostMultiplier: 1
     costMultiplyRate: 2
+    minCostMultiplyRate: 1.25
     upgradeCostMultiplyRate: 1.4
   - orderItem: {fileID: 11400000, guid: e348e87141da15949bb8d1a581b6044c, type: 2}
     level: 0
@@ -514,6 +515,7 @@ MonoBehaviour:
     costMultiplier: 1
     upgradeCostMultiplier: 1
     costMultiplyRate: 2
+    minCostMultiplyRate: 1.25
     upgradeCostMultiplyRate: 1.4
 --- !u!114 &103339148
 MonoBehaviour:

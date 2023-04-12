@@ -60,8 +60,7 @@ public class Modifiers : MonoBehaviour
             float checkRank = (upgrades.level % 10f) / 10;
             if (checkRank == 0)
             {
-                upgrades.costMultiplyRate = 2;
-                upgrades.upgradeCostMultiplyRate -= 0.9;
+                upgrades.costMultiplier *= 2;
             }
             IncreaseCostMultiplier(orderItem);
             IncreaseUpgradeCostMultiplier(orderItem);
@@ -71,14 +70,18 @@ public class Modifiers : MonoBehaviour
     {
         WorkstationUpgrades upgrades = GetWorkstationUpgradesForOrderItem(orderItem);
         upgrades.costMultiplier = Math.Round(upgrades.costMultiplier * upgrades.costMultiplyRate, 2);
-        upgrades.costMultiplyRate -= 0.05;
+        if (upgrades.costMultiplyRate > upgrades.minCostMultiplyRate)
+        {
+            upgrades.costMultiplyRate -= (upgrades.costMultiplyRate / 10);
+            if(upgrades.costMultiplyRate < upgrades.minCostMultiplyRate)
+                upgrades.costMultiplyRate = upgrades.minCostMultiplyRate;
+        }
     }
 
     void IncreaseUpgradeCostMultiplier(OrderItem orderItem)
     {
         WorkstationUpgrades upgrades = GetWorkstationUpgradesForOrderItem(orderItem);
         upgrades.upgradeCostMultiplier = Math.Round(upgrades.upgradeCostMultiplier * upgrades.upgradeCostMultiplyRate, 2);
-        upgrades.upgradeCostMultiplyRate += 0.1;
     }
 }
 
@@ -90,6 +93,6 @@ public class Modifiers : MonoBehaviour
     public double costMultiplier;
     public double upgradeCostMultiplier;
     public double costMultiplyRate = 2;
+    public double minCostMultiplyRate = 1.25;
     public double upgradeCostMultiplyRate = 1.4;
-
 }
