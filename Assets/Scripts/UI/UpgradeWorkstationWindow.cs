@@ -10,8 +10,8 @@ public class UpgradeWorkstationWindow : MonoBehaviour
     [SerializeField] WorkstationUpgrader upgrader;
     [SerializeField] ProgressBar progressBar;
     bool isOpen;
-    private double upgradeCost;
-    private double itemCost;
+    private Currency upgradeCost;
+    private Currency itemCost;
     private int itemLevel;
     private string itemName;
 
@@ -61,15 +61,10 @@ public class UpgradeWorkstationWindow : MonoBehaviour
     }
     public void LvUpButton()
     {
-        if(wallet.goldAmount >= upgradeCost)
+        if (Wallet.Instance.TryRemoveGold(upgradeCost))
         {
-            wallet.RemoveGold(upgradeCost);
             Modifiers.Instance.UpgradeLevel(upgrader);
             LoadDataForWorkstationUpgrader(upgrader);
-        }
-        else
-        {
-            Debug.Log("not enough gold");
         }
     }
 }

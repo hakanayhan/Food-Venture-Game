@@ -5,22 +5,59 @@ using UnityEngine;
 
 public class Wallet : MonoBehaviour
 {
+    public static Wallet Instance;
     public UIManager UIManager;
-    public double goldAmount;
 
-    private void Start()
+
+    public Currency goldAmount = new Currency(5);
+
+    void Awake()
     {
+        if (Instance != null)
+        {
+            Debug.LogError("There is more than one instance of Wallet in this scene!");
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
+
+    void Start()
+    {
+        UIManager = FindObjectOfType<UIManager>();
         UIManager.SetGoldText(goldAmount);
     }
-    public void AddGold(double gold)
+
+    public void AddGold(double amtToAdd)
     {
-        goldAmount += gold;
+        goldAmount += amtToAdd;
         UIManager.SetGoldText(goldAmount);
     }
 
-    public void RemoveGold(double gold)
+    public bool TryRemoveGold(double gold)
     {
+        if (goldAmount < gold)
+            return false;
+
         goldAmount -= gold;
+        UIManager.SetGoldText(goldAmount);
+        return true;
+    }
+
+    public bool TryRemoveGold(Currency gold)
+    {
+        return TryRemoveGold((double)gold);
+    }
+
+    public Currency GetGoldBalance()
+    {
+        return goldAmount;
+    }
+
+    // For Debugging
+    public void SetGold(double amt)
+    {
+        goldAmount = new Currency(amt);
         UIManager.SetGoldText(goldAmount);
     }
 }

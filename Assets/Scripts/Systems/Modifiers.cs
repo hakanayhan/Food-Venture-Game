@@ -40,15 +40,15 @@ public class Modifiers : MonoBehaviour
         return upgrades.level;
     }
 
-    public double GetUpgradeCost(OrderItem orderItem)
+    public Currency GetUpgradeCost(OrderItem orderItem)
     {
         WorkstationUpgrades upgrades = GetWorkstationUpgradesForOrderItem(orderItem);
-        return (orderItem.itemBaseUpgradeCost * upgrades.upgradeCostMultiplier);
+        return new Currency(orderItem.itemBaseUpgradeCost * upgrades.upgradeCostMultiplier);
     }
-    public double GetUnlockCost(OrderItem orderItem)
+    public Currency GetUnlockCost(OrderItem orderItem)
     {
         WorkstationUpgrades upgrades = GetWorkstationUpgradesForOrderItem(orderItem);
-        return upgrades.unlockCost;
+        return new Currency(upgrades.unlockCost);
     }
 
     public double GetOrderItemCostMultiplier(OrderItem orderItem)

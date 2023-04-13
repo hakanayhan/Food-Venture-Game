@@ -9,7 +9,7 @@ public class UnlockWorkstationWindow : MonoBehaviour
     [SerializeField] GameObject panel;
     CustomerManager customerManager;
     public Wallet wallet;
-    double unlockCost;
+    Currency unlockCost;
     bool isOpen;
     void Awake()
     {
@@ -45,9 +45,8 @@ public class UnlockWorkstationWindow : MonoBehaviour
 
     public void UnlockButton()
     {
-        if (wallet.goldAmount >= unlockCost)
+        if (Wallet.Instance.TryRemoveGold(unlockCost))
         {
-            wallet.RemoveGold(unlockCost);
             Unlock();
         }
     }

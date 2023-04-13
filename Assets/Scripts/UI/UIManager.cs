@@ -7,7 +7,7 @@ public class UIManager : MonoBehaviour
 {
     public Text goldText;
 
-    public void SetGoldText(double goldAmount)
+    public void SetGoldText(Currency goldAmount)
     {
         goldText.text = goldAmount.ToString();
     }

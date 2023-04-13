@@ -16,9 +16,8 @@ public class OrderItem : ScriptableObject
         return itemBaseCookTime;
     }
 
-    public double GetCost()
+    public Currency GetCost()
     {
-        double itemCost = itemBaseCost * Modifiers.Instance.GetOrderItemCostMultiplier(this);
-        return itemCost;
+        return new Currency(itemBaseCost * Modifiers.Instance.GetOrderItemCostMultiplier(this));
     }
 }
