@@ -120,12 +120,17 @@ public class Currency
 
     public static bool operator ==(Currency a, Currency b)
     {
+        if (object.ReferenceEquals(a, null))
+        {
+            return object.ReferenceEquals(b, null);
+        }
+
         return a.value == b.value;
     }
 
     public static bool operator !=(Currency a, Currency b)
     {
-        return a.value != b.value;
+        return !(a == b);
     }
 
     public static Currency operator +(Currency a, double b)
@@ -165,6 +170,21 @@ public class Currency
 
     public static bool operator !=(Currency a, double b)
     {
-        return a.value != b;
+        return !(a == b);
+    }
+
+    public override bool Equals(object obj)
+    {
+        if (obj == null || GetType() != obj.GetType())
+        {
+            return false;
+        }
+
+        return value == ((Currency)obj).value;
+    }
+
+    public override int GetHashCode()
+    {
+        return value.GetHashCode();
     }
 }
