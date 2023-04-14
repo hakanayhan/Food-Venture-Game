@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpgradeWorkstationWindow : MonoBehaviour
+public class UpgradeWorkstationWindow : Window
 {
     public static UpgradeWorkstationWindow Instance;
     public Wallet wallet;
     [SerializeField] GameObject panel;
     [SerializeField] WorkstationUpgrader upgrader;
     [SerializeField] ProgressBar progressBar;
-    bool isOpen;
     private Currency upgradeCost;
     private Currency itemCost;
     private int itemLevel;
@@ -48,16 +47,14 @@ public class UpgradeWorkstationWindow : MonoBehaviour
     {
         this.upgrader = upgrader;
         LoadDataForWorkstationUpgrader(upgrader);
-        if (isOpen)
-        {
-            isOpen = false;
-            panel.SetActive(false);
-        }
-        else
-        {
-            isOpen = true;
-            panel.SetActive(true);
-        }
+        
+        panel.SetActive(true);
+        CloseWindowsOnClick.Instance.WindowOpened();
+    }
+
+    public override void CloseWindow()
+    {
+        panel.SetActive(false);
     }
     public void LvUpButton()
     {

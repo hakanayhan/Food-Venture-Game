@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnlockWorkstationWindow : MonoBehaviour
+public class UnlockWorkstationWindow : Window
 {
     public static UnlockWorkstationWindow Instance;
     [SerializeField] WorkstationUpgrader upgrader;
@@ -10,7 +10,6 @@ public class UnlockWorkstationWindow : MonoBehaviour
     CustomerManager customerManager;
     public Wallet wallet;
     Currency unlockCost;
-    bool isOpen;
     void Awake()
     {
         if (Instance != null)
@@ -31,16 +30,14 @@ public class UnlockWorkstationWindow : MonoBehaviour
         this.upgrader = upgrader;
         unlockCost = Modifiers.Instance.GetUnlockCost(upgrader.orderItem);
         upgrader.unlockUpgradeLabel.text = unlockCost.ToString();
-        if (isOpen)
-        {
-            isOpen = false;
-            panel.SetActive(false);
-        }
-        else
-        {
-            isOpen = true;
-            panel.SetActive(true);
-        }
+        
+        panel.SetActive(true);
+        CloseWindowsOnClick.Instance.WindowOpened();
+    }
+
+    public override void CloseWindow()
+    {
+        panel.SetActive(false);
     }
 
     public void UnlockButton()
@@ -57,7 +54,6 @@ public class UnlockWorkstationWindow : MonoBehaviour
         Modifiers.Instance.UpgradeLevel(upgrader, false);
         upgrader.unlockGameObject.SetActive(false);
         upgrader.stationGameObjects[0].SetActive(true);
-        isOpen = false;
-        panel.SetActive(false);
+        CloseWindowsOnClick.Instance.CloseAllWindows();
     }
 }
