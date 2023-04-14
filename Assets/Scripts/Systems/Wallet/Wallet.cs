@@ -15,7 +15,6 @@ public class Wallet : MonoBehaviour
     {
         if (Instance != null)
         {
-            Debug.LogError("There is more than one instance of Wallet in this scene!");
             Destroy(gameObject);
             return;
         }
@@ -53,8 +52,7 @@ public class Wallet : MonoBehaviour
     {
         return goldAmount;
     }
-
-    // For Debugging
+    
     public void SetGold(double amt)
     {
         goldAmount = new Currency(amt);

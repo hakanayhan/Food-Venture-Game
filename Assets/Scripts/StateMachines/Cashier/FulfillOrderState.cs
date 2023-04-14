@@ -19,7 +19,7 @@ public class FulfillOrderState : State
         //Debug.Log("Entering Fulfill Order State");
 
         cashierStation.FulfillOrder();
-        Debug.Log("CASH: Delivered Order to Cashierstation");
+        //Debug.Log("CASH: Delivered Order to Cashierstation");
         if (!stateMachine.cook.cookManager.hasCooks)
             stateMachine.cook.carriedItem.SetActive(false);
         stateMachine.SwitchState(new IdleState(stateMachine));

@@ -31,7 +31,7 @@ public class CashierStation : MonoBehaviour
         hasOrder = true;
         customer.Order();
         customer.ShowSpeechBubble();
-        Debug.Log(customer.order.orderItem);
+        //Debug.Log(customer.order.orderItem);
         return customer.order;
     }
 

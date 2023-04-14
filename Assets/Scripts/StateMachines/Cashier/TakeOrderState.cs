@@ -22,7 +22,7 @@ public class TakeOrderState : State
 
         if (takeOrderTimer == 0f)
         {
-            Debug.Log("Order Taken");
+            //Debug.Log("Order Taken");
             Order order = stateMachine.cashierStation.TakeOrder();
             stateMachine.SwitchState(new IdleState(stateMachine));
         }

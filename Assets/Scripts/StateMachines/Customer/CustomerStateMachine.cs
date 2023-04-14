@@ -67,7 +67,7 @@ public class CustomerStateMachine : StateMachine
         OrderItem itemToOrder = customerManager.orderItems[itemToOrderIndex];
         Order order = new Order(customerManager.nextOrderID, itemToOrder, 1, customer);
         customerManager.nextOrderID++;
-        Debug.Log(customer + " ordered " + itemToOrder.itemName);
+        //Debug.Log(customer + " ordered " + itemToOrder.itemName);
         cookManager.pendingOrders.Add(order);
         return order;
     }

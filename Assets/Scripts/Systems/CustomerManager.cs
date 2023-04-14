@@ -37,7 +37,7 @@ public class CustomerManager : MonoBehaviour
                 return cashierstation;
             }
         }
-        Debug.LogError("No free CashierStations");
+        //Debug.LogError("No free CashierStations");
         return null;
     }
 
