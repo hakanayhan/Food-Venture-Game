@@ -7,8 +7,6 @@ public class ProgressBar : MonoBehaviour
 {
     [SerializeField] Image progressBar;
 
-    float testFillAmount = 0f;
-
     public void SetFillAmount(float fillAmount)
     {
         progressBar.fillAmount = fillAmount;
