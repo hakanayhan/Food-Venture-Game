@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: CameraSettings_SampleScene
   m_EditorClassIdentifier: 
   moveSpeed: 40
-  minZ: -10
+  minZ: -11
   maxZ: -2
   dragSpeed: 2
