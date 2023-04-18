@@ -10,7 +10,7 @@ public class WorkstationUpgrader : MonoBehaviour
     public Text itemNameLabel;
     public Text itemCostLabel;
     public Text upgradeCostLabel;
-
+    public Text itemCookTimeLabel;
     public Text unlockUpgradeLabel;
     public List <GameObject> stationGameObjects;
     public GameObject unlockGameObject;

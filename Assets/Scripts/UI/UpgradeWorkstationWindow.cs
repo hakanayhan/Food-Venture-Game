@@ -12,6 +12,7 @@ public class UpgradeWorkstationWindow : Window
     private Currency upgradeCost;
     private Currency itemCost;
     private int itemLevel;
+    private float itemCookTime;
     private string itemName;
 
     void Awake()
@@ -34,6 +35,7 @@ public class UpgradeWorkstationWindow : Window
         itemLevel = Modifiers.Instance.GetUpgradeLevel(upgrader.orderItem);
         itemName = upgrader.orderItem.itemName;
         itemCost = upgrader.orderItem.GetCost();
+        itemCookTime = upgrader.orderItem.GetCookTime();
         upgradeCost = Modifiers.Instance.GetUpgradeCost(upgrader.orderItem);
         float progress = (itemLevel % 10f) / 10;
         progressBar.SetFillAmount(progress);
@@ -41,6 +43,7 @@ public class UpgradeWorkstationWindow : Window
         upgrader.itemNameLabel.text = itemName;
         upgrader.upgradeCostLabel.text = upgradeCost.ToString();
         upgrader.itemCostLabel.text = itemCost.ToString();
+        upgrader.itemCookTimeLabel.text = itemCookTime.ToString() + "s";
     }
 
     public void OpenWindow(WorkstationUpgrader upgrader)
