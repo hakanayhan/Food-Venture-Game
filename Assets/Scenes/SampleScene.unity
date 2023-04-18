@@ -565,7 +565,7 @@ MonoBehaviour:
   _cashierPrefab: {fileID: 344180478722215177, guid: d46ee72b5ea989947874c7ebc816c765,
     type: 3}
   _spawnPoint: {fileID: 531212609}
-  _maxCashier: 4
+  maxCashier: 2
   _randomPos: {fileID: 11400000, guid: 357651f44956bab4dbfbf932744f40fd, type: 2}
   cashiers: []
   cashierStations:
@@ -594,7 +594,7 @@ MonoBehaviour:
   _customerPrefab: {fileID: 323544134899879688, guid: 08f61ad3c3b30eb4d892e5d6cf377ebc,
     type: 3}
   spawnPoint: {fileID: 568670973}
-  _maxCustomer: 10
+  maxCustomer: 4
   _randomPos: {fileID: 11400000, guid: 3dd0f78c005096345bf275c562f6bb5f, type: 2}
   cashierStations:
   - {fileID: 278237808}
@@ -3791,14 +3791,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradesList:
-  - id: 0
-    icon: {fileID: 21300000, guid: de08b66464da40a4ba6f98a5f4389fc1, type: 3}
-    upgradeTitle: title testtt
-    upgradeText: text testghdsgh
-    price: 857
+  - icon: {fileID: 21300000, guid: de08b66464da40a4ba6f98a5f4389fc1, type: 3}
+    upgradeTitle: Add Cashier
+    price: 50
     feature: 0
     multiplyRate: 0
-    addRate: 0
+    addRate: 2
+  - icon: {fileID: 21300000, guid: de08b66464da40a4ba6f98a5f4389fc1, type: 3}
+    upgradeTitle: Add Customer
+    price: 50
+    feature: 1
+    multiplyRate: 0
+    addRate: 2
   upgradePrefab: {fileID: 6989060287504980559, guid: 83cb868f3a96ff54693ebebfdf850876,
     type: 3}
 --- !u!114 &749655483
