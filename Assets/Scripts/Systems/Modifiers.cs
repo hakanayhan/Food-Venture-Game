@@ -57,6 +57,12 @@ public class Modifiers : MonoBehaviour
         return upgrades.costMultiplier;
     }
 
+    public float GetCookTimeRatio(OrderItem orderItem)
+    {
+        WorkstationUpgrades upgrades = GetWorkstationUpgradesForOrderItem(orderItem);
+        return upgrades.cookTimeRatio;
+    }
+
     public void UpgradeLevel(WorkstationUpgrader upgrader, bool increaseCosts = true)
     {
         WorkstationUpgrades upgrades = GetWorkstationUpgradesForOrderItem(upgrader.orderItem);
@@ -101,6 +107,12 @@ public class Modifiers : MonoBehaviour
         WorkstationUpgrades upgrades = GetWorkstationUpgradesForOrderItem(orderItem);
         upgrades.costMultiplier *= multiplyRate;
     }
+
+    public void MultiplyCookTimeRatio(OrderItem orderItem, float multiplyRate)
+    {
+        WorkstationUpgrades upgrades = GetWorkstationUpgradesForOrderItem(orderItem);
+        upgrades.cookTimeRatio *= multiplyRate;
+    }
 }
 
 [Serializable] public class WorkstationUpgrades
@@ -113,5 +125,6 @@ public class Modifiers : MonoBehaviour
     public double costMultiplyRate = 2;
     public double minCostMultiplyRate = 1.25;
     public double upgradeCostMultiplyRate = 1.4;
+    public float cookTimeRatio = 1;
     public int activeWorkstations = 1;
 }

@@ -509,6 +509,7 @@ MonoBehaviour:
     costMultiplyRate: 2
     minCostMultiplyRate: 1.25
     upgradeCostMultiplyRate: 1.4
+    cookTimeRatio: 1
     activeWorkstations: 1
   - orderItem: {fileID: 11400000, guid: e348e87141da15949bb8d1a581b6044c, type: 2}
     level: 0
@@ -518,6 +519,7 @@ MonoBehaviour:
     costMultiplyRate: 2
     minCostMultiplyRate: 1.25
     upgradeCostMultiplyRate: 1.4
+    cookTimeRatio: 1
     activeWorkstations: 1
   cookManager: {fileID: 0}
 --- !u!114 &103339148
@@ -3809,6 +3811,13 @@ MonoBehaviour:
     upgradeTitle: Multiply Profit
     price: 20
     feature: 2
+    multiplyRate: 2
+    addRate: 0
+    orderItem: {fileID: 11400000, guid: 7676102718247fa4489e4a7865c567ca, type: 2}
+  - icon: {fileID: 21300000, guid: de08b66464da40a4ba6f98a5f4389fc1, type: 3}
+    upgradeTitle: Increase Speed
+    price: 20
+    feature: 3
     multiplyRate: 2
     addRate: 0
     orderItem: {fileID: 11400000, guid: 7676102718247fa4489e4a7865c567ca, type: 2}

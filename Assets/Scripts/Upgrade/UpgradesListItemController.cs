@@ -35,7 +35,11 @@ public class UpgradesListItemController : MonoBehaviour
         {
             return upgrades.orderItem.itemName + " profit x" + upgrades.multiplyRate;
         }
-            return null;
+        else if (upgrades.feature == Upgrades.Features.increaseSpeed)
+        {
+            return upgrades.orderItem.itemName + " is made faster";
+        }
+        return null;
     }
 
     public void UpgradeButton()
@@ -53,6 +57,10 @@ public class UpgradesListItemController : MonoBehaviour
             else if (upgrades.feature == Upgrades.Features.multiplyProfit)
             {
                 Modifiers.Instance.MultiplyCostMultiplier(upgrades.orderItem, upgrades.multiplyRate);
+            }
+            else if (upgrades.feature == Upgrades.Features.increaseSpeed)
+            {
+                Modifiers.Instance.MultiplyCookTimeRatio(upgrades.orderItem, upgrades.multiplyRate);
             }
             Destroy(this.gameObject);
         }

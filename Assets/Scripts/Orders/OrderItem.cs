@@ -13,7 +13,7 @@ public class OrderItem : ScriptableObject
     public float itemBaseCookTime;
     public float GetCookTime()
     {
-        return itemBaseCookTime;
+        return itemBaseCookTime / Modifiers.Instance.GetCookTimeRatio(this);
     }
 
     public Currency GetCost()
