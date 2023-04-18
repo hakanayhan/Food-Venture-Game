@@ -31,4 +31,5 @@ public class UpgradesListController : MonoBehaviour
     public Features feature;
     public float multiplyRate = 1;
     public float addRate = 0;
+    public OrderItem orderItem;
 }

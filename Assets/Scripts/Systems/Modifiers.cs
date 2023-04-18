@@ -95,6 +95,12 @@ public class Modifiers : MonoBehaviour
         WorkstationUpgrades upgrades = GetWorkstationUpgradesForOrderItem(orderItem);
         upgrades.upgradeCostMultiplier = Math.Round(upgrades.upgradeCostMultiplier * upgrades.upgradeCostMultiplyRate, 2);
     }
+
+    public void MultiplyCostMultiplier(OrderItem orderItem, float multiplyRate)
+    {
+        WorkstationUpgrades upgrades = GetWorkstationUpgradesForOrderItem(orderItem);
+        upgrades.costMultiplier *= multiplyRate;
+    }
 }
 
 [Serializable] public class WorkstationUpgrades

@@ -31,7 +31,11 @@ public class UpgradesListItemController : MonoBehaviour
             string s = (upgrades.addRate > 1) ? "s" : "";
             return "+" + upgrades.addRate + " Customer" + s;
         }
-        return null;
+        else if (upgrades.feature == Upgrades.Features.multiplyProfit)
+        {
+            return upgrades.orderItem.itemName + " profit x" + upgrades.multiplyRate;
+        }
+            return null;
     }
 
     public void UpgradeButton()
@@ -45,6 +49,10 @@ public class UpgradesListItemController : MonoBehaviour
             else if(upgrades.feature == Upgrades.Features.addCustomer)
             {
                 CustomerManager.Instance.maxCustomer += upgrades.addRate;
+            }
+            else if (upgrades.feature == Upgrades.Features.multiplyProfit)
+            {
+                Modifiers.Instance.MultiplyCostMultiplier(upgrades.orderItem, upgrades.multiplyRate);
             }
             Destroy(this.gameObject);
         }
