@@ -6,12 +6,21 @@ using UnityEngine.UI;
 public class UpgradesListItemController : MonoBehaviour
 {
     public Upgrades upgrades;
+    [SerializeField] private Image icon;
+    [SerializeField] private Text title;
+    [SerializeField] private Text description;
+    [SerializeField] private Text priceText;
 
     private void Start()
     {
-        this.transform.GetChild(0).GetComponent<Image>().sprite = upgrades.icon;
-        this.transform.GetChild(1).GetComponent<Text>().text = upgrades.upgradeTitle;
-        this.transform.GetChild(2).GetComponent<Text>().text = upgrades.upgradeText;
-        this.transform.GetChild(3).GetChild(1).GetComponent<Text>().text = upgrades.price.ToString();
+        icon.sprite = upgrades.icon;
+        title.text = upgrades.upgradeTitle;
+        description.text = upgrades.upgradeText;
+        priceText.text = upgrades.price.ToString();
+    }
+
+    public void upgradeButton()
+    {
+        Debug.Log("Upgraded");
     }
 }
