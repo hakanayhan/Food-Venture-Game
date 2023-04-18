@@ -24,10 +24,8 @@ public class UpgradesListController : MonoBehaviour
 
 [Serializable] public class Upgrades
 {
-    public float id;
     public Sprite icon;
     public string upgradeTitle;
-    public string upgradeText;
     public double price;
     public enum Features { addCashier, addCustomer, multiplyProfit, increaseSpeed }
     public Features feature;
