@@ -4,17 +4,28 @@ using UnityEngine;
 
 public class CashierManager : MonoBehaviour
 {
+    public static CashierManager Instance;
     [SerializeField] private GameObject _cashierPrefab;
     [SerializeField] private Transform _spawnPoint;
-    [SerializeField] private float _maxCashier;
+    public float maxCashier;
     [SerializeField] private RandomPosition _randomPos;
     public List<CashierStateMachine> cashiers = new List<CashierStateMachine>();
     public List<CashierStation> cashierStations = new List<CashierStation>();
     private float _currentCashier = 0;
+    
+    void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
 
     private void Update()
     {
-        if (_currentCashier < _maxCashier)
+        if (_currentCashier < maxCashier)
             SpawnNewCashier();
 
         ManageOrders();
