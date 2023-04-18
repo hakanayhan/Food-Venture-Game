@@ -254,10 +254,11 @@ MonoBehaviour:
     feature: 0
     multiplyRate: 1
     addRate: 0
-  icon: {fileID: 6989060286797099072}
-  title: {fileID: 6989060287769079146}
-  description: {fileID: 6989060288301595689}
-  priceText: {fileID: 6989060288132965857}
+  wallet: {fileID: 0}
+  _icon: {fileID: 6989060286797099072}
+  _title: {fileID: 6989060287769079146}
+  _description: {fileID: 6989060288301595689}
+  _priceText: {fileID: 6989060288132965857}
 --- !u!1 &6989060287680498095
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +384,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 711734024}
         m_TargetAssemblyTypeName: UpgradesListItemController, Assembly-CSharp
-        m_MethodName: upgradeButton
+        m_MethodName: UpgradeButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
