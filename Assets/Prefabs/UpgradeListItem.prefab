@@ -163,6 +163,7 @@ GameObject:
   - component: {fileID: 6989060287504980556}
   - component: {fileID: 6989060287504980554}
   - component: {fileID: 6989060287504980557}
+  - component: {fileID: 711734024}
   m_Layer: 5
   m_Name: UpgradeListItem
   m_TagString: Untagged
@@ -232,6 +233,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &711734024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6989060287504980559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b228f152f25507049a6c8eed91a3eacb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrades:
+    id: 0
+    icon: {fileID: 0}
+    upgradeTitle: 
+    upgradeText: 
+    price: 0
+    feature: 0
+    multiplyRate: 1
+    addRate: 0
 --- !u!1 &6989060287680498095
 GameObject:
   m_ObjectHideFlags: 0

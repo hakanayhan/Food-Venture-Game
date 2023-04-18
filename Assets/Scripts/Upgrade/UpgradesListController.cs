@@ -1,9 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class UpgradesListController : MonoBehaviour
 {
@@ -11,18 +9,15 @@ public class UpgradesListController : MonoBehaviour
     public GameObject upgradePrefab;
     private void Start()
     {
-        listUpgrades();
+        ListUpgrades();
     }
 
-    void listUpgrades()
+    void ListUpgrades()
     {
         foreach (Upgrades upgrades in upgradesList)
         {
             GameObject obj = Instantiate(upgradePrefab, this.transform);
-            obj.transform.GetChild(0).GetComponent<Image>().sprite = upgrades.icon;
-            obj.transform.GetChild(1).GetComponent<Text>().text = upgrades.upgradeTitle;
-            obj.transform.GetChild(2).GetComponent<Text>().text = upgrades.upgradeText;
-            obj.transform.GetChild(3).GetChild(1).GetComponent<Text>().text = upgrades.price.ToString();
+            obj.transform.GetComponent<UpgradesListItemController>().upgrades = upgrades;
         }
     }
 }
