@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UpgradesListItemController : MonoBehaviour
 {
-    public Upgrades upgrades;
+    public Upgrade upgrade;
     [SerializeField] private Image _icon;
     [SerializeField] private Text _title;
     [SerializeField] private Text _description;
@@ -13,54 +13,54 @@ public class UpgradesListItemController : MonoBehaviour
 
     private void Start()
     {
-        _icon.sprite = upgrades.icon;
-        _title.text = upgrades.upgradeTitle;
+        _icon.sprite = upgrade.icon;
+        _title.text = upgrade.upgradeTitle;
         _description.text = GetDescriptionText();
-        _priceText.text = new Currency(upgrades.price).ToString();
+        _priceText.text = new Currency(upgrade.price).ToString();
     }
 
     private string GetDescriptionText()
     {
-        if (upgrades.feature == Upgrades.Features.addCashier)
+        if (upgrade.feature == Upgrade.Features.addCashier)
         {
-            string s = (upgrades.addRate > 1) ? "s" : "";
-            return "+" + upgrades.addRate + " Cashier" + s;
+            string s = (upgrade.addRate > 1) ? "s" : "";
+            return "+" + upgrade.addRate + " Cashier" + s;
         }
-        else if (upgrades.feature == Upgrades.Features.addCustomer)
+        else if (upgrade.feature == Upgrade.Features.addCustomer)
         {
-            string s = (upgrades.addRate > 1) ? "s" : "";
-            return "+" + upgrades.addRate + " Customer" + s;
+            string s = (upgrade.addRate > 1) ? "s" : "";
+            return "+" + upgrade.addRate + " Customer" + s;
         }
-        else if (upgrades.feature == Upgrades.Features.multiplyProfit)
+        else if (upgrade.feature == Upgrade.Features.multiplyProfit)
         {
-            return upgrades.orderItem.itemName + " profit x" + upgrades.multiplyRate;
+            return upgrade.orderItem.itemName + " profit x" + upgrade.multiplyRate;
         }
-        else if (upgrades.feature == Upgrades.Features.increaseSpeed)
+        else if (upgrade.feature == Upgrade.Features.increaseSpeed)
         {
-            return upgrades.orderItem.itemName + " is made faster";
+            return upgrade.orderItem.itemName + " is made faster";
         }
         return null;
     }
 
     public void UpgradeButton()
     {
-        if (Wallet.Instance.TryRemoveGold(upgrades.price))
+        if (Wallet.Instance.TryRemoveGold(upgrade.price))
         {
-            if(upgrades.feature == Upgrades.Features.addCashier)
+            if(upgrade.feature == Upgrade.Features.addCashier)
             {
-                CashierManager.Instance.maxCashier += upgrades.addRate;
+                CashierManager.Instance.maxCashier += upgrade.addRate;
             }
-            else if(upgrades.feature == Upgrades.Features.addCustomer)
+            else if(upgrade.feature == Upgrade.Features.addCustomer)
             {
-                CustomerManager.Instance.maxCustomer += upgrades.addRate;
+                CustomerManager.Instance.maxCustomer += upgrade.addRate;
             }
-            else if (upgrades.feature == Upgrades.Features.multiplyProfit)
+            else if (upgrade.feature == Upgrade.Features.multiplyProfit)
             {
-                Modifiers.Instance.MultiplyCostMultiplier(upgrades.orderItem, upgrades.multiplyRate);
+                Modifiers.Instance.MultiplyCostMultiplier(upgrade.orderItem, upgrade.multiplyRate);
             }
-            else if (upgrades.feature == Upgrades.Features.increaseSpeed)
+            else if (upgrade.feature == Upgrade.Features.increaseSpeed)
             {
-                Modifiers.Instance.MultiplyCookTimeRatio(upgrades.orderItem, upgrades.multiplyRate);
+                Modifiers.Instance.MultiplyCookTimeRatio(upgrade.orderItem, upgrade.multiplyRate);
             }
             Destroy(this.gameObject);
         }

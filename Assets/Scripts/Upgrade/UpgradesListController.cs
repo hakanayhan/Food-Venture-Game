@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UpgradesListController : MonoBehaviour
 {
-    public List<Upgrades> upgradesList;
+    public List<Upgrade> upgradesList;
     public GameObject upgradePrefab;
     private void Start()
     {
@@ -14,15 +14,15 @@ public class UpgradesListController : MonoBehaviour
 
     void ListUpgrades()
     {
-        foreach (Upgrades upgrades in upgradesList)
+        foreach (Upgrade upgrade in upgradesList)
         {
             GameObject obj = Instantiate(upgradePrefab, this.transform);
-            obj.transform.GetComponent<UpgradesListItemController>().upgrades = upgrades;
+            obj.transform.GetComponent<UpgradesListItemController>().upgrade = upgrade;
         }
     }
 }
 
-[Serializable] public class Upgrades
+[Serializable] public class Upgrade
 {
     public Sprite icon;
     public string upgradeTitle;
