@@ -53,6 +53,7 @@ public class UnlockWorkstationWindow : Window
         customerManager.AddItem(upgrader.orderItem);
         Modifiers.Instance.UpgradeLevel(upgrader, false);
         upgrader.unlockGameObject.SetActive(false);
+        upgrader.baseStationGameObject.SetActive(true);
         upgrader.stationGameObjects[0].SetActive(true);
         CloseWindowsOnClick.Instance.CloseAllWindows();
     }

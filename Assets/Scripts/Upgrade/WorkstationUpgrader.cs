@@ -14,6 +14,7 @@ public class WorkstationUpgrader : MonoBehaviour
     public Text unlockUpgradeLabel;
     public List <GameObject> stationGameObjects;
     public GameObject unlockGameObject;
+    public GameObject baseStationGameObject;
 
     public void OnChildClicked(bool isItUnlocker)
     {
