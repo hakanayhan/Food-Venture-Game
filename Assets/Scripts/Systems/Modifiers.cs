@@ -100,6 +100,12 @@ public class Modifiers : MonoBehaviour
     {
         WorkstationUpgrades upgrades = GetWorkstationUpgradesForOrderItem(orderItem);
         upgrades.upgradeCostMultiplier = Math.Round(upgrades.upgradeCostMultiplier * upgrades.upgradeCostMultiplyRate, 2);
+        if (upgrades.upgradeCostMultiplyRate > upgrades.minUpgradeCostMultiplyRate)
+        {
+            upgrades.upgradeCostMultiplyRate -= (upgrades.upgradeCostMultiplyRate / 40);
+            if (upgrades.upgradeCostMultiplyRate < upgrades.minUpgradeCostMultiplyRate)
+                upgrades.upgradeCostMultiplyRate = upgrades.minUpgradeCostMultiplyRate;
+        }
     }
 
     public void MultiplyCostMultiplier(OrderItem orderItem, float multiplyRate)
@@ -125,6 +131,7 @@ public class Modifiers : MonoBehaviour
     public double costMultiplyRate = 2;
     public double minCostMultiplyRate = 1.25;
     public double upgradeCostMultiplyRate = 1.4;
+    public double minUpgradeCostMultiplyRate = 1.4;
     public float cookTimeRatio = 1;
     public int activeWorkstations = 1;
 }
