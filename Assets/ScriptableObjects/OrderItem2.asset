@@ -16,5 +16,5 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: 599f597f3a37128439b310d17a8862f5, type: 3}
   itemMaterial: {fileID: 2100000, guid: 23450d0d16a76b44abe1b803d82382e7, type: 2}
   itemBaseCost: 10
-  itemBaseUpgradeCost: 30
-  itemBaseCookTime: 4
+  itemBaseUpgradeCost: 20
+  itemBaseCookTime: 10
