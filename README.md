@@ -20,3 +20,5 @@ There's no release for now.
 
 ## Controls
 - Mouse: Use the mouse to upgrade workstations and control the camera.
+
+This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
