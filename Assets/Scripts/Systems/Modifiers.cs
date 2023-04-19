@@ -69,16 +69,26 @@ public class Modifiers : MonoBehaviour
         upgrades.level++;
         if (increaseCosts)
         {
-            float checkRank = (upgrades.level % 10f) / 10;
-            if (checkRank == 0)
+            UpgradeRank upgradeRank = upgrades.upgradeRanks[upgrades.rank];
+            if (upgradeRank.rankUpLevel == upgrades.level)
             {
-                if (upgrades.activeWorkstations < upgrader.stationGameObjects.Count)
+                if (upgradeRank.doubleTheCostMultiplier)
+                    upgrades.costMultiplier *= 2;
+
+                if (upgrades.activeWorkstations < upgrader.stationGameObjects.Count && upgradeRank.addNewWorkstation)
                 {
                     upgrader.stationGameObjects[upgrades.activeWorkstations].SetActive(true);
                     cookManager.workstations.Add(upgrader.stationGameObjects[upgrades.activeWorkstations].GetComponent<Workstation>());
                     upgrades.activeWorkstations++;
                 }
-                upgrades.costMultiplier *= 2;
+                if (upgrades.upgradeRanks.Count > upgrades.rank + 1)
+                {
+                    upgrades.rank++;
+                }
+                else
+                {
+                    upgrades.isMaxLv = true;
+                }
             }
             IncreaseCostMultiplier(upgrader.orderItem);
             IncreaseUpgradeCostMultiplier(upgrader.orderItem);
@@ -119,6 +129,24 @@ public class Modifiers : MonoBehaviour
         WorkstationUpgrades upgrades = GetWorkstationUpgradesForOrderItem(orderItem);
         upgrades.cookTimeRatio *= multiplyRate;
     }
+
+    public float GetRank(OrderItem orderItem)
+    {
+        WorkstationUpgrades upgrades = GetWorkstationUpgradesForOrderItem(orderItem);
+        return upgrades.rank;
+    }
+
+    public float GetRankUpLevel(OrderItem orderItem, int rank)
+    {
+        WorkstationUpgrades upgrades = GetWorkstationUpgradesForOrderItem(orderItem);
+        return upgrades.upgradeRanks[rank].rankUpLevel;
+    }
+
+    public bool GetIsMaxLv(OrderItem orderItem)
+    {
+        WorkstationUpgrades upgrades = GetWorkstationUpgradesForOrderItem(orderItem);
+        return upgrades.isMaxLv;
+    }
 }
 
 [Serializable] public class WorkstationUpgrades
@@ -134,4 +162,14 @@ public class Modifiers : MonoBehaviour
     public double minUpgradeCostMultiplyRate = 1.4;
     public float cookTimeRatio = 1;
     public int activeWorkstations = 1;
+    public int rank = 1;
+    public bool isMaxLv;
+    public List<UpgradeRank> upgradeRanks;
+}
+
+[Serializable] public class UpgradeRank
+{
+    public int rankUpLevel;
+    public bool doubleTheCostMultiplier;
+    public bool addNewWorkstation;
 }

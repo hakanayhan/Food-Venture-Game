@@ -421,6 +421,18 @@ MonoBehaviour:
     minUpgradeCostMultiplyRate: 1.4
     cookTimeRatio: 1
     activeWorkstations: 1
+    rank: 1
+    isMaxLv: 0
+    upgradeRanks:
+    - rankUpLevel: 0
+      doubleTheCostMultiplier: 0
+      addNewWorkstation: 0
+    - rankUpLevel: 10
+      doubleTheCostMultiplier: 1
+      addNewWorkstation: 1
+    - rankUpLevel: 25
+      doubleTheCostMultiplier: 1
+      addNewWorkstation: 0
   cookManager: {fileID: 0}
 --- !u!114 &103339148
 MonoBehaviour:
@@ -1697,6 +1709,8 @@ MonoBehaviour:
   panel: {fileID: 604034335}
   upgrader: {fileID: 0}
   progressBar: {fileID: 1151381216}
+  buttonObj: {fileID: 834466189}
+  coinObj: {fileID: 2048784318}
 --- !u!1 &449354425
 GameObject:
   m_ObjectHideFlags: 0
