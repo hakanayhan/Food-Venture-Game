@@ -16,7 +16,7 @@ public class UpgradesListItemController : MonoBehaviour
         _icon.sprite = upgrades.icon;
         _title.text = upgrades.upgradeTitle;
         _description.text = GetDescriptionText();
-        _priceText.text = new Currency(upgrades.price).ToShortString();
+        _priceText.text = new Currency(upgrades.price).ToString();
     }
 
     private string GetDescriptionText()
