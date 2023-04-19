@@ -414,10 +414,11 @@ MonoBehaviour:
     level: 0
     unlockCost: 5
     costMultiplier: 1
-    upgradeCostMultiplier: 0.5
+    upgradeCostMultiplier: 1
     costMultiplyRate: 2
     minCostMultiplyRate: 1.25
     upgradeCostMultiplyRate: 1.6
+    minUpgradeCostMultiplyRate: 1.4
     cookTimeRatio: 1
     activeWorkstations: 1
   cookManager: {fileID: 0}
@@ -2759,7 +2760,7 @@ GameObject:
   - component: {fileID: 749655480}
   - component: {fileID: 749655481}
   - component: {fileID: 749655483}
-  - component: {fileID: 749655482}
+  - component: {fileID: 749655484}
   m_Layer: 5
   m_Name: UpgradesList
   m_TagString: Untagged
@@ -2825,70 +2826,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
---- !u!114 &749655482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 749655478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21367da39ce426740aeb8c4bdab87f7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgradesList:
-  - icon: {fileID: 21300000, guid: 685d79c089f876341afa3e0d2c54150c, type: 3}
-    upgradeTitle: 
-    price: 40
-    feature: 1
-    multiplyRate: 0
-    addRate: 1
-    orderItem: {fileID: 0}
-  - icon: {fileID: 21300000, guid: de08b66464da40a4ba6f98a5f4389fc1, type: 3}
-    upgradeTitle: 
-    price: 180
-    feature: 0
-    multiplyRate: 0
-    addRate: 1
-    orderItem: {fileID: 0}
-  - icon: {fileID: 21300000, guid: de08b66464da40a4ba6f98a5f4389fc1, type: 3}
-    upgradeTitle: 
-    price: 460
-    feature: 2
-    multiplyRate: 2
-    addRate: 0
-    orderItem: {fileID: 11400000, guid: 7676102718247fa4489e4a7865c567ca, type: 2}
-  - icon: {fileID: 21300000, guid: de08b66464da40a4ba6f98a5f4389fc1, type: 3}
-    upgradeTitle: 
-    price: 800
-    feature: 1
-    multiplyRate: 0
-    addRate: 1
-    orderItem: {fileID: 0}
-  - icon: {fileID: 21300000, guid: de08b66464da40a4ba6f98a5f4389fc1, type: 3}
-    upgradeTitle: 
-    price: 1400
-    feature: 2
-    multiplyRate: 2
-    addRate: 0
-    orderItem: {fileID: 11400000, guid: 7676102718247fa4489e4a7865c567ca, type: 2}
-  - icon: {fileID: 21300000, guid: de08b66464da40a4ba6f98a5f4389fc1, type: 3}
-    upgradeTitle: 
-    price: 1800
-    feature: 3
-    multiplyRate: 2
-    addRate: 0
-    orderItem: {fileID: 11400000, guid: 7676102718247fa4489e4a7865c567ca, type: 2}
-  - icon: {fileID: 21300000, guid: de08b66464da40a4ba6f98a5f4389fc1, type: 3}
-    upgradeTitle: 
-    price: 3800
-    feature: 2
-    multiplyRate: 2
-    addRate: 0
-    orderItem: {fileID: 11400000, guid: 7676102718247fa4489e4a7865c567ca, type: 2}
-  upgradePrefab: {fileID: 6989060287504980559, guid: 83cb868f3a96ff54693ebebfdf850876,
-    type: 3}
 --- !u!114 &749655483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2909,6 +2846,63 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &749655484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749655478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21367da39ce426740aeb8c4bdab87f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradesList:
+  - icon: {fileID: 21300000, guid: 685d79c089f876341afa3e0d2c54150c, type: 3}
+    upgradeTitle: 
+    price: 40
+    feature: 1
+    multiplyRate: 0
+    addRate: 1
+    orderItem: {fileID: 0}
+  - icon: {fileID: 21300000, guid: 685d79c089f876341afa3e0d2c54150c, type: 3}
+    upgradeTitle: 
+    price: 280
+    feature: 2
+    multiplyRate: 2
+    addRate: 0
+    orderItem: {fileID: 11400000, guid: 7676102718247fa4489e4a7865c567ca, type: 2}
+  - icon: {fileID: 21300000, guid: 685d79c089f876341afa3e0d2c54150c, type: 3}
+    upgradeTitle: 
+    price: 460
+    feature: 1
+    multiplyRate: 0
+    addRate: 1
+    orderItem: {fileID: 0}
+  - icon: {fileID: 21300000, guid: 685d79c089f876341afa3e0d2c54150c, type: 3}
+    upgradeTitle: 
+    price: 3000
+    feature: 0
+    multiplyRate: 0
+    addRate: 1
+    orderItem: {fileID: 0}
+  - icon: {fileID: 21300000, guid: 685d79c089f876341afa3e0d2c54150c, type: 3}
+    upgradeTitle: 
+    price: 5000
+    feature: 3
+    multiplyRate: 2
+    addRate: 0
+    orderItem: {fileID: 11400000, guid: 7676102718247fa4489e4a7865c567ca, type: 2}
+  - icon: {fileID: 21300000, guid: 685d79c089f876341afa3e0d2c54150c, type: 3}
+    upgradeTitle: 
+    price: 8000
+    feature: 2
+    multiplyRate: 2
+    addRate: 0
+    orderItem: {fileID: 11400000, guid: 7676102718247fa4489e4a7865c567ca, type: 2}
+  upgradePrefab: {fileID: 6989060287504980559, guid: 83cb868f3a96ff54693ebebfdf850876,
+    type: 3}
 --- !u!1 &773403281
 GameObject:
   m_ObjectHideFlags: 0
