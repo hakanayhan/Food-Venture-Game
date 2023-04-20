@@ -14,9 +14,9 @@ public class UpgradeWorkstationWindow : Window
     [SerializeField] Image progressBarFill;
     [SerializeField] private Button buttonObj;
     [SerializeField] private GameObject coinObj;
-    [SerializeField] private List<GameObject> stars;
-    [SerializeField] private List<GameObject> evenStars;
-    public List<GameObject> activeStars;
+    [SerializeField] private GameObject stars;
+    [SerializeField] private GameObject starPrefab;
+    public List<GameObject> starsList;
     private Currency upgradeCost;
     private Currency itemCost;
     private int itemLevel;
@@ -91,41 +91,27 @@ public class UpgradeWorkstationWindow : Window
         progressBarFill.color = HexToColor(colorHex);
         int fixedRanksCount = (ranksCount > 6) ? ranksCount - 5 : ranksCount;
         fixedRanksCount = (ranksCount > 6 && rank <= 6) ? 6 : fixedRanksCount;
-        switch (fixedRanksCount - 1)
-        {
-            case 1:
-                activeStars.Add(stars[2]);
-                break;
-            case 2:
-                activeStars.AddRange(new[] { evenStars[1], evenStars[2] });
-                break;
-            case 3:
-                activeStars.AddRange(new[] { stars[1], stars[2], stars[3] });
-                break;
-            case 4:
-                activeStars.AddRange(evenStars);
-                break;
-            case 5:
-                activeStars.AddRange(stars);
-                break;
+        
+        for (int i = 0; i < (fixedRanksCount - 1); i++) {
+            GameObject obj = Instantiate(starPrefab, stars.transform);
+            starsList.Add(obj);
         }
 
-        activeStars.ForEach(star => star.SetActive(true));
+        starsList.ForEach(star => star.SetActive(true));
 
         float fixedRank = (rank > 6 && ranksCount > 6) ? rank - 5 : rank;
         for (int i = 0; i < fixedRank - 1; i++)
         {
-            activeStars[i].GetComponent<Image>().color = HexToColor(colorHex);
+            starsList[i].GetComponent<Image>().color = HexToColor(colorHex);
         }
     }
 
     void ResetStars()
     {
-        activeStars.Clear();
-        foreach (GameObject star in stars.Concat(evenStars))
+        starsList.Clear();
+        foreach (Transform star in stars.transform)
         {
-            star.GetComponent<Image>().color = HexToColor("#E0E0E0");
-            star.SetActive(false);
+            Destroy(star.gameObject);
         }
     }
 
