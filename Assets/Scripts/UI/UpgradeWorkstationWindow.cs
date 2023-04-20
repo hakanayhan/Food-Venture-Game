@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,8 +11,12 @@ public class UpgradeWorkstationWindow : Window
     [SerializeField] GameObject panel;
     [SerializeField] WorkstationUpgrader upgrader;
     [SerializeField] ProgressBar progressBar;
+    [SerializeField] Image progressBarFill;
     [SerializeField] private Button buttonObj;
     [SerializeField] private GameObject coinObj;
+    [SerializeField] private List<GameObject> stars;
+    [SerializeField] private List<GameObject> evenStars;
+    public List<GameObject> activeStars;
     private Currency upgradeCost;
     private Currency itemCost;
     private int itemLevel;
@@ -61,13 +66,66 @@ public class UpgradeWorkstationWindow : Window
             progressBar.SetFillAmount(progress);
             buttonObj.interactable = true;
             coinObj.SetActive(true);
+            SetStars(upgrader, rank);
         }
         else
         {
+            float rank = Modifiers.Instance.GetRank(upgrader.orderItem);
             upgrader.upgradeCostLabel.text = "Max    ";
             progressBar.SetFillAmount(1);
             buttonObj.interactable = false;
             coinObj.SetActive(false);
+            SetStars(upgrader, rank);
+        }
+    }
+
+    void SetStars(WorkstationUpgrader upgrader, float rank)
+    {
+        int ranksCount = Modifiers.Instance.GetRanksCount(upgrader.orderItem);
+        ResetStars();
+
+        string colorHex = "#42BDFF";
+        if (rank > 6 && ranksCount > 6)
+            colorHex = "#88DD4A";
+
+        progressBarFill.color = HexToColor(colorHex);
+        int fixedRanksCount = (ranksCount > 6) ? ranksCount - 5 : ranksCount;
+        fixedRanksCount = (ranksCount > 6 && rank <= 6) ? 6 : fixedRanksCount;
+        switch (fixedRanksCount - 1)
+        {
+            case 1:
+                activeStars.Add(stars[2]);
+                break;
+            case 2:
+                activeStars.AddRange(new[] { evenStars[1], evenStars[2] });
+                break;
+            case 3:
+                activeStars.AddRange(new[] { stars[1], stars[2], stars[3] });
+                break;
+            case 4:
+                activeStars.AddRange(evenStars);
+                break;
+            case 5:
+                activeStars.AddRange(stars);
+                break;
+        }
+
+        activeStars.ForEach(star => star.SetActive(true));
+
+        float fixedRank = (rank > 6 && ranksCount > 6) ? rank - 5 : rank;
+        for (int i = 0; i < fixedRank - 1; i++)
+        {
+            activeStars[i].GetComponent<Image>().color = HexToColor(colorHex);
+        }
+    }
+
+    void ResetStars()
+    {
+        activeStars.Clear();
+        foreach (GameObject star in stars.Concat(evenStars))
+        {
+            star.GetComponent<Image>().color = HexToColor("#E0E0E0");
+            star.SetActive(false);
         }
     }
 
@@ -91,5 +149,14 @@ public class UpgradeWorkstationWindow : Window
             Modifiers.Instance.UpgradeLevel(upgrader);
             LoadDataForWorkstationUpgrader(upgrader);
         }
+    }
+
+    private Color HexToColor(string hex)
+    {
+        hex = hex.Replace("#", "");
+        byte r = byte.Parse(hex.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
+        byte g = byte.Parse(hex.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+        byte b = byte.Parse(hex.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
+        return new Color32(r, g, b, 255);
     }
 }

@@ -81,14 +81,10 @@ public class Modifiers : MonoBehaviour
                     cookManager.workstations.Add(upgrader.stationGameObjects[upgrades.activeWorkstations].GetComponent<Workstation>());
                     upgrades.activeWorkstations++;
                 }
-                if (upgrades.upgradeRanks.Count > upgrades.rank + 1)
-                {
+                if (upgrades.upgradeRanks.Count > upgrades.rank)
                     upgrades.rank++;
-                }
-                else
-                {
+                if (upgrades.upgradeRanks.Count <= upgrades.rank)
                     upgrades.isMaxLv = true;
-                }
             }
             IncreaseCostMultiplier(upgrader.orderItem);
             IncreaseUpgradeCostMultiplier(upgrader.orderItem);
@@ -146,6 +142,12 @@ public class Modifiers : MonoBehaviour
     {
         WorkstationUpgrades upgrades = GetWorkstationUpgradesForOrderItem(orderItem);
         return upgrades.isMaxLv;
+    }
+
+    public int GetRanksCount(OrderItem orderItem)
+    {
+        WorkstationUpgrades upgrades = GetWorkstationUpgradesForOrderItem(orderItem);
+        return upgrades.upgradeRanks.Count;
     }
 }
 
