@@ -71,7 +71,7 @@ public class UpgradeWorkstationWindow : Window
         else
         {
             float rank = Modifiers.Instance.GetRank(upgrader.orderItem);
-            upgrader.upgradeCostLabel.text = "Max    ";
+            upgrader.upgradeCostLabel.text = "Max  ";
             progressBar.SetFillAmount(1);
             buttonObj.interactable = false;
             coinObj.SetActive(false);
