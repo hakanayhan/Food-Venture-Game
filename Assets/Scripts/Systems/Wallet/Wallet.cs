@@ -8,8 +8,8 @@ public class Wallet : MonoBehaviour
     public static Wallet Instance;
     public UIManager UIManager;
 
-
-    public Currency goldAmount = new Currency(5);
+    public double startingGoldAmount;
+    [HideInInspector]public Currency goldAmount;
 
     void Awake()
     {
@@ -23,6 +23,7 @@ public class Wallet : MonoBehaviour
 
     void Start()
     {
+        goldAmount = new Currency(startingGoldAmount);
         UIManager = FindObjectOfType<UIManager>();
         UIManager.SetGoldText(goldAmount);
     }

@@ -402,6 +402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIManager: {fileID: 1164598636}
+  startingGoldAmount: 0
 --- !u!114 &103339148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,7 +418,7 @@ MonoBehaviour:
   workstationUpgrades:
   - orderItem: {fileID: 11400000, guid: 7676102718247fa4489e4a7865c567ca, type: 2}
     level: 0
-    unlockCost: 5
+    unlockCost: 0
     costMultiplier: 1
     upgradeCostMultiplier: 1
     costMultiplyRate: 2
