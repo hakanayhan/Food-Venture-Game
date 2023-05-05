@@ -9,7 +9,18 @@ public class Wallet : MonoBehaviour
     public UIManager UIManager;
 
     public double startingGoldAmount;
-    [HideInInspector]public Currency goldAmount;
+    private Currency _goldAmount;
+
+    [HideInInspector]public Currency goldAmount
+    {
+        get { return _goldAmount; }
+        set
+        {
+            _goldAmount = value;
+            UIManager.SetGoldText(_goldAmount);
+            RefreshUI();
+        }
+    }
 
     void Awake()
     {
@@ -25,15 +36,11 @@ public class Wallet : MonoBehaviour
     {
         goldAmount = new Currency(startingGoldAmount);
         UIManager = FindObjectOfType<UIManager>();
-        UIManager.SetGoldText(goldAmount);
-        RefreshUpgradeIcons();
     }
 
     public void AddGold(double amtToAdd)
     {
         goldAmount += amtToAdd;
-        UIManager.SetGoldText(goldAmount);
-        RefreshUpgradeIcons();
     }
 
     public bool TryRemoveGold(double gold)
@@ -42,8 +49,6 @@ public class Wallet : MonoBehaviour
             return false;
 
         goldAmount -= gold;
-        UIManager.SetGoldText(goldAmount);
-        RefreshUpgradeIcons();
         return true;
     }
 
@@ -60,19 +65,34 @@ public class Wallet : MonoBehaviour
     public void SetGold(double amt)
     {
         goldAmount = new Currency(amt);
-        UIManager.SetGoldText(goldAmount);
     }
 
-    public void RefreshUpgradeIcons()
+    public void RefreshUI()
     {
         foreach (WorkstationUpgrader upgrader in Modifiers.Instance.foods)
         {
             upgrader.AdjustUpgradeIcon();
         }
-        OrderItem orderItem = UpgradeWorkstationWindow.Instance.upgrader.orderItem;
-        if (!Modifiers.Instance.GetIsMaxLv(orderItem))
-            UpgradeWorkstationWindow.Instance.buttonObj.interactable = (goldAmount >= Modifiers.Instance.GetUpgradeCost(orderItem));
 
-        UnlockWorkstationWindow.Instance.buttonObj.interactable = (goldAmount >= Modifiers.Instance.GetUnlockCost(orderItem));
+
+        UIManager.upgradeIcon.SetActive(false);
+        foreach (UpgradesListItemController upgradeItem in UpgradesListController.Instance.parentGameObject.GetComponentsInChildren<UpgradesListItemController>())
+        {
+            if (goldAmount >= upgradeItem.upgrade.price)
+            {
+                UIManager.Instance.upgradeIcon.SetActive(true);
+                upgradeItem.upgradeButton.interactable = true;
+            }
+            else
+            {
+                upgradeItem.upgradeButton.interactable = false;
+            }
+        }
+
+        OrderItem orderItem = UpgradeWorkstationWindow.Instance.upgrader.orderItem;
+        bool canAffordUpgrade = goldAmount >= Modifiers.Instance.GetUpgradeCost(orderItem);
+        bool canAffordUnlock = goldAmount >= Modifiers.Instance.GetUnlockCost(orderItem);
+        UpgradeWorkstationWindow.Instance.buttonObj.interactable = !Modifiers.Instance.GetIsMaxLv(orderItem) && canAffordUpgrade;
+        UnlockWorkstationWindow.Instance.buttonObj.interactable = canAffordUnlock;
     }
 }

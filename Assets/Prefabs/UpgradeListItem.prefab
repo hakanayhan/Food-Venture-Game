@@ -253,6 +253,7 @@ MonoBehaviour:
     multiplyRate: 1
     addRate: 0
     orderItem: {fileID: 0}
+  upgradeButton: {fileID: 6795954519218093987}
   _icon: {fileID: 6989060286797099072}
   _title: {fileID: 6989060287769079146}
   _description: {fileID: 6989060288301595689}

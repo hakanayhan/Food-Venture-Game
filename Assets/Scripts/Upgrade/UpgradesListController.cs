@@ -5,18 +5,41 @@ using UnityEngine;
 
 public class UpgradesListController : MonoBehaviour
 {
+    public static UpgradesListController Instance;
     public List<Upgrade> upgradesList;
     public GameObject upgradePrefab;
+    public GameObject parentGameObject;
+    private int _childCount = -1;
+
+    void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
+
     private void Start()
     {
         ListUpgrades();
     }
 
+    void Update()
+    {
+        if (parentGameObject.transform.childCount != _childCount)
+        {
+            _childCount = parentGameObject.transform.childCount;
+            Wallet.Instance.RefreshUI();
+        }
+    }
+    
     void ListUpgrades()
     {
         foreach (Upgrade upgrade in upgradesList)
         {
-            GameObject obj = Instantiate(upgradePrefab, this.transform);
+            GameObject obj = Instantiate(upgradePrefab, parentGameObject.transform);
             obj.transform.GetComponent<UpgradesListItemController>().upgrade = upgrade;
         }
     }

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UpgradesListItemController : MonoBehaviour
 {
     public Upgrade upgrade;
+    public Button upgradeButton;
     [SerializeField] private Image _icon;
     [SerializeField] private Text _title;
     [SerializeField] private Text _description;

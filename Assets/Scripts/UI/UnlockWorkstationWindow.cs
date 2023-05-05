@@ -60,6 +60,6 @@ public class UnlockWorkstationWindow : Window
         upgrader.baseStationGameObject.SetActive(true);
         upgrader.stationGameObjects[0].SetActive(true);
         CloseWindowsOnClick.Instance.CloseAllWindows();
-        Wallet.Instance.RefreshUpgradeIcons();
+        Wallet.Instance.RefreshUI();
     }
 }

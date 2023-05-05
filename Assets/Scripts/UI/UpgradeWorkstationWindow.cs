@@ -134,7 +134,7 @@ public class UpgradeWorkstationWindow : Window
         {
             Modifiers.Instance.UpgradeLevel(upgrader);
             LoadDataForWorkstationUpgrader(upgrader);
-            Wallet.Instance.RefreshUpgradeIcons();
+            Wallet.Instance.RefreshUI();
         }
     }
 
