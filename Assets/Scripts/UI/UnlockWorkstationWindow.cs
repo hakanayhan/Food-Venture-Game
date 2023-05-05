@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UnlockWorkstationWindow : Window
 {
     public static UnlockWorkstationWindow Instance;
-    [SerializeField] WorkstationUpgrader upgrader;
+    public WorkstationUpgrader upgrader;
     [SerializeField] GameObject panel;
+    public Button buttonObj;
     CustomerManager customerManager;
     public Wallet wallet;
     Currency unlockCost;
@@ -30,8 +32,10 @@ public class UnlockWorkstationWindow : Window
         this.upgrader = upgrader;
         unlockCost = Modifiers.Instance.GetUnlockCost(upgrader.orderItem);
         upgrader.unlockUpgradeLabel.text = unlockCost.ToString();
-        
+
+        buttonObj.interactable = (Wallet.Instance.goldAmount >= unlockCost);
         panel.SetActive(true);
+        
         CloseWindowsOnClick.Instance.WindowOpened();
     }
 
@@ -56,6 +60,6 @@ public class UnlockWorkstationWindow : Window
         upgrader.baseStationGameObject.SetActive(true);
         upgrader.stationGameObjects[0].SetActive(true);
         CloseWindowsOnClick.Instance.CloseAllWindows();
-        upgrader.AdjustUpgradeIcon();
+        Wallet.Instance.RefreshUpgradeIcons();
     }
 }

@@ -1469,8 +1469,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c3e39e5aaf6b3e4997c94da412a19d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgrader: {fileID: 0}
+  upgrader: {fileID: 1066228008}
   panel: {fileID: 1797505960}
+  buttonObj: {fileID: 834063585}
   wallet: {fileID: 0}
 --- !u!1 &355834091
 GameObject:
@@ -1976,7 +1977,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallet: {fileID: 0}
   panel: {fileID: 604034335}
-  upgrader: {fileID: 0}
+  upgrader: {fileID: 1066228008}
   progressBar: {fileID: 1151381216}
   progressBarFill: {fileID: 696214028}
   buttonObj: {fileID: 834466189}
@@ -3531,8 +3532,8 @@ GameObject:
   m_Component:
   - component: {fileID: 834466186}
   - component: {fileID: 834466188}
-  - component: {fileID: 834466187}
   - component: {fileID: 834466189}
+  - component: {fileID: 834466187}
   m_Layer: 5
   m_Name: LvUpButton
   m_TagString: Untagged

@@ -9,10 +9,10 @@ public class UpgradeWorkstationWindow : Window
     public static UpgradeWorkstationWindow Instance;
     public Wallet wallet;
     [SerializeField] GameObject panel;
-    [SerializeField] WorkstationUpgrader upgrader;
+    public WorkstationUpgrader upgrader;
     [SerializeField] ProgressBar progressBar;
     [SerializeField] Image progressBarFill;
-    [SerializeField] private Button buttonObj;
+    public Button buttonObj;
     [SerializeField] private GameObject coinObj;
     [SerializeField] private GameObject stars;
     [SerializeField] private GameObject starPrefab;
@@ -64,7 +64,7 @@ public class UpgradeWorkstationWindow : Window
             float rankLv = Modifiers.Instance.GetRankUpLevel(upgrader.orderItem, (int)rank);
             float progress = ((itemLevel - prevRankLv) % (rankLv - prevRankLv)) / (rankLv - prevRankLv);
             progressBar.SetFillAmount(progress);
-            buttonObj.interactable = true;
+            buttonObj.interactable = (Wallet.Instance.goldAmount >= upgradeCost);
             coinObj.SetActive(true);
             SetStars(upgrader, rank);
         }
@@ -119,7 +119,7 @@ public class UpgradeWorkstationWindow : Window
     {
         this.upgrader = upgrader;
         LoadDataForWorkstationUpgrader(upgrader);
-        
+
         panel.SetActive(true);
         CloseWindowsOnClick.Instance.WindowOpened();
     }
@@ -134,7 +134,7 @@ public class UpgradeWorkstationWindow : Window
         {
             Modifiers.Instance.UpgradeLevel(upgrader);
             LoadDataForWorkstationUpgrader(upgrader);
-            upgrader.AdjustUpgradeIcon();
+            Wallet.Instance.RefreshUpgradeIcons();
         }
     }
 

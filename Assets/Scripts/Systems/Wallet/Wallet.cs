@@ -63,11 +63,16 @@ public class Wallet : MonoBehaviour
         UIManager.SetGoldText(goldAmount);
     }
 
-    void RefreshUpgradeIcons()
+    public void RefreshUpgradeIcons()
     {
         foreach (WorkstationUpgrader upgrader in Modifiers.Instance.foods)
         {
             upgrader.AdjustUpgradeIcon();
         }
+        OrderItem orderItem = UpgradeWorkstationWindow.Instance.upgrader.orderItem;
+        if (!Modifiers.Instance.GetIsMaxLv(orderItem))
+            UpgradeWorkstationWindow.Instance.buttonObj.interactable = (goldAmount >= Modifiers.Instance.GetUpgradeCost(orderItem));
+
+        UnlockWorkstationWindow.Instance.buttonObj.interactable = (goldAmount >= Modifiers.Instance.GetUnlockCost(orderItem));
     }
 }
