@@ -134,6 +134,7 @@ public class UpgradeWorkstationWindow : Window
         {
             Modifiers.Instance.UpgradeLevel(upgrader);
             LoadDataForWorkstationUpgrader(upgrader);
+            upgrader.AdjustUpgradeIcon();
         }
     }
 

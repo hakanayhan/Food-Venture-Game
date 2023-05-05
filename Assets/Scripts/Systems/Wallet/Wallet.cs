@@ -26,12 +26,14 @@ public class Wallet : MonoBehaviour
         goldAmount = new Currency(startingGoldAmount);
         UIManager = FindObjectOfType<UIManager>();
         UIManager.SetGoldText(goldAmount);
+        RefreshUpgradeIcons();
     }
 
     public void AddGold(double amtToAdd)
     {
         goldAmount += amtToAdd;
         UIManager.SetGoldText(goldAmount);
+        RefreshUpgradeIcons();
     }
 
     public bool TryRemoveGold(double gold)
@@ -41,6 +43,7 @@ public class Wallet : MonoBehaviour
 
         goldAmount -= gold;
         UIManager.SetGoldText(goldAmount);
+        RefreshUpgradeIcons();
         return true;
     }
 
@@ -58,5 +61,13 @@ public class Wallet : MonoBehaviour
     {
         goldAmount = new Currency(amt);
         UIManager.SetGoldText(goldAmount);
+    }
+
+    void RefreshUpgradeIcons()
+    {
+        foreach (WorkstationUpgrader upgrader in Modifiers.Instance.foods)
+        {
+            upgrader.AdjustUpgradeIcon();
+        }
     }
 }

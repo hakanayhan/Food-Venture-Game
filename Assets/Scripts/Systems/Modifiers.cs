@@ -8,6 +8,7 @@ public class Modifiers : MonoBehaviour
     public static Modifiers Instance;
     public List<WorkstationUpgrades> workstationUpgrades;
     [HideInInspector]public CookManager cookManager;
+    public List<WorkstationUpgrader> foods;
     void Awake()
     {
         if (Instance != null)
