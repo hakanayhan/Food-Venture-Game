@@ -1,17 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class WorkstationUpgrader : MonoBehaviour
 {
     public OrderItem orderItem;
-    public Text levelLabel;
-    public Text itemNameLabel;
-    public Text itemCostLabel;
-    public Text upgradeCostLabel;
-    public Text itemCookTimeLabel;
-    public Text unlockUpgradeLabel;
+    public TextMeshProUGUI levelLabel;
+    public TextMeshProUGUI itemNameLabel;
+    public TextMeshProUGUI itemCostLabel;
+    public TextMeshProUGUI upgradeCostLabel;
+    public TextMeshProUGUI itemCookTimeLabel;
+    public TextMeshProUGUI unlockUpgradeLabel;
     public List <GameObject> stationGameObjects;
     public GameObject unlockGameObject;
     public GameObject baseStationGameObject;

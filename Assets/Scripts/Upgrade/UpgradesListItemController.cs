@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UpgradesListItemController : MonoBehaviour
 {
     public Upgrade upgrade;
     public Button upgradeButton;
     [SerializeField] private Image _icon;
-    [SerializeField] private Text _title;
-    [SerializeField] private Text _description;
-    [SerializeField] private Text _priceText;
+    [SerializeField] private TextMeshProUGUI _title;
+    [SerializeField] private TextMeshProUGUI _description;
+    [SerializeField] private TextMeshProUGUI _priceText;
 
     private void Start()
     {
