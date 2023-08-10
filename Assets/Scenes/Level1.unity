@@ -796,8 +796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasCooks: 0
-  workstations:
-  - {fileID: 1242989902}
+  workstations: []
   cashierManager: {fileID: 0}
 --- !u!114 &103339150
 MonoBehaviour:

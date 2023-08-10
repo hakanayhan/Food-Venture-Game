@@ -58,7 +58,10 @@ public class UnlockWorkstationWindow : Window
         Modifiers.Instance.UpgradeLevel(upgrader, false);
         upgrader.unlockGameObject.SetActive(false);
         upgrader.baseStationGameObject.SetActive(true);
+
         upgrader.stationGameObjects[0].SetActive(true);
+        CookManager.Instance.workstations.Add(upgrader.stationGameObjects[0].GetComponent<Workstation>());
+
         CloseWindowsOnClick.Instance.CloseAllWindows();
         Wallet.Instance.RefreshUI();
     }
