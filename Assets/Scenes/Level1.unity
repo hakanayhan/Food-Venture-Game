@@ -1840,7 +1840,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311831244}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.35, y: 1.9, z: 0}
+  m_LocalPosition: {x: -0.35, y: 0.6, z: 0.4}
   m_LocalScale: {x: 0.045, y: 0.045, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5025,7 +5025,7 @@ MonoBehaviour:
   stationGameObjects:
   - {fileID: 1242989900}
   - {fileID: 41426756}
-  unlockGameObject: {fileID: 323577590}
+  unlockGameObject: {fileID: 1873027646}
   baseStationGameObject: {fileID: 2002864771}
   upgradeIcon: {fileID: 311831244}
 --- !u!1 &1091400136
