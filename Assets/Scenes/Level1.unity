@@ -994,7 +994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradesList:
-  - icon: {fileID: 21300000, guid: 91976e8b9ce0f0341838727acd55621c, type: 3}
+  - icon: {fileID: 21300000, guid: 9089aba352b10954a838448a121b4761, type: 3}
     upgradeTitle: 
     price: 40
     feature: 1
@@ -1008,14 +1008,14 @@ MonoBehaviour:
     multiplyRate: 2
     addRate: 0
     orderItem: {fileID: 11400000, guid: 7676102718247fa4489e4a7865c567ca, type: 2}
-  - icon: {fileID: 21300000, guid: 91976e8b9ce0f0341838727acd55621c, type: 3}
+  - icon: {fileID: 21300000, guid: 9089aba352b10954a838448a121b4761, type: 3}
     upgradeTitle: 
     price: 460
     feature: 1
     multiplyRate: 0
     addRate: 1
     orderItem: {fileID: 0}
-  - icon: {fileID: 21300000, guid: 91976e8b9ce0f0341838727acd55621c, type: 3}
+  - icon: {fileID: 21300000, guid: 9089aba352b10954a838448a121b4761, type: 3}
     upgradeTitle: 
     price: 3000
     feature: 0
