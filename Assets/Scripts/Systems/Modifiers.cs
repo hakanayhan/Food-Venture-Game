@@ -90,6 +90,8 @@ public class Modifiers : MonoBehaviour
             IncreaseCostMultiplier(upgrader.orderItem);
             IncreaseUpgradeCostMultiplier(upgrader.orderItem);
         }
+        if (AreAllFoodMaxLv())
+            RenovationWindow.Instance.renovationUpgradeIcon.SetActive(true);
     }
     void IncreaseCostMultiplier(OrderItem orderItem)
     {
@@ -149,6 +151,17 @@ public class Modifiers : MonoBehaviour
     {
         WorkstationUpgrades upgrades = GetWorkstationUpgradesForOrderItem(orderItem);
         return upgrades.upgradeRanks.Count;
+    }
+
+    public bool AreAllFoodMaxLv()
+    {
+        bool allFoodMaxLv = true;
+        foreach (WorkstationUpgrades food in workstationUpgrades)
+        {
+            if (!food.isMaxLv)
+                allFoodMaxLv = false;
+        }
+        return allFoodMaxLv;
     }
 }
 
