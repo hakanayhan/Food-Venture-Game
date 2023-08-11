@@ -45,23 +45,23 @@ public class RenovationWindow : MonoBehaviour
     {
         if (Modifiers.Instance.AreAllFoodMaxLv())
         {
-            if (LevelManager.Instance.IsNextLvExist())
+            if (CanAffordRenovation())
             {
-                if(CanAffordRenovation())
+                if (LevelManager.Instance.IsNextLvExist())
                 {
                     upgradeText.text = "You can upgrade your restaurant!";
                     renovateButton.interactable = true;
                 }
                 else
                 {
-                    Currency requiredGold = new Currency(LevelManager.Instance.requiredGoldsToLevelUp);
-                    upgradeText.text = "You need " + requiredGold.ToString() + " golds to upgrade your restaurant!";
+                    upgradeText.text = "It's the max level. Stay updated!";
                     renovateButton.interactable = false;
                 }
             }
             else
             {
-                upgradeText.text = "It's the max level. Stay updated!";
+                Currency requiredGold = new Currency(LevelManager.Instance.requiredGoldsToLevelUp);
+                upgradeText.text = "You need " + requiredGold.ToString() + " golds to upgrade your restaurant!";
                 renovateButton.interactable = false;
             }
         }
