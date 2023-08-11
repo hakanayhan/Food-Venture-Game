@@ -94,5 +94,6 @@ public class Wallet : MonoBehaviour
         bool canAffordUnlock = goldAmount >= Modifiers.Instance.GetUnlockCost(orderItem);
         UpgradeWorkstationWindow.Instance.buttonObj.interactable = !Modifiers.Instance.GetIsMaxLv(orderItem) && canAffordUpgrade;
         UnlockWorkstationWindow.Instance.buttonObj.interactable = canAffordUnlock;
+        RenovationWindow.Instance.CheckRenovationIcon();
     }
 }

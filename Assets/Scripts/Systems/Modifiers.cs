@@ -90,8 +90,6 @@ public class Modifiers : MonoBehaviour
             IncreaseCostMultiplier(upgrader.orderItem);
             IncreaseUpgradeCostMultiplier(upgrader.orderItem);
         }
-        if (AreAllFoodMaxLv())
-            RenovationWindow.Instance.renovationUpgradeIcon.SetActive(true);
     }
     void IncreaseCostMultiplier(OrderItem orderItem)
     {

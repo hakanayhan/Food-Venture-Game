@@ -1052,6 +1052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLv: 0
+  requiredGoldsToLevelUp: 500000
 --- !u!1 &106405950
 GameObject:
   m_ObjectHideFlags: 0

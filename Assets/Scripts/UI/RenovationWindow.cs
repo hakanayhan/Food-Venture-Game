@@ -11,7 +11,7 @@ public class RenovationWindow : MonoBehaviour
     [SerializeField] Camera cameraGameObject;
     [SerializeField] TextMeshProUGUI upgradeText;
     [SerializeField] Button renovateButton;
-    public GameObject renovationUpgradeIcon;
+    [SerializeField] GameObject renovationUpgradeIcon;
 
     void Awake()
     {
@@ -37,7 +37,7 @@ public class RenovationWindow : MonoBehaviour
 
     public void RenovateButton()
     {
-        if (Modifiers.Instance.AreAllFoodMaxLv() && LevelManager.Instance.IsNextLvExist())
+        if (Modifiers.Instance.AreAllFoodMaxLv() && LevelManager.Instance.IsNextLvExist() && CanAffordRenovation())
             LevelManager.Instance.UpgradeLevel();
     }
 
@@ -47,8 +47,17 @@ public class RenovationWindow : MonoBehaviour
         {
             if (LevelManager.Instance.IsNextLvExist())
             {
-                upgradeText.text = "You can upgrade your restaurant!";
-                renovateButton.interactable = true;
+                if(CanAffordRenovation())
+                {
+                    upgradeText.text = "You can upgrade your restaurant!";
+                    renovateButton.interactable = true;
+                }
+                else
+                {
+                    Currency requiredGold = new Currency(LevelManager.Instance.requiredGoldsToLevelUp);
+                    upgradeText.text = "You need " + requiredGold.ToString() + " golds to upgrade your restaurant!";
+                    renovateButton.interactable = false;
+                }
             }
             else
             {
@@ -62,5 +71,15 @@ public class RenovationWindow : MonoBehaviour
             upgradeText.text = "Upgrade all stations to level " + maxLv + " first!";
             renovateButton.interactable = false;
         }
+    }
+    public void CheckRenovationIcon()
+    {
+        renovationUpgradeIcon.SetActive(Modifiers.Instance.AreAllFoodMaxLv() && CanAffordRenovation());
+        if (window.activeSelf)
+            CheckRenovation();
+    }
+    bool CanAffordRenovation()
+    {
+        return (Wallet.Instance.GetGoldBalance() >= LevelManager.Instance.requiredGoldsToLevelUp);
     }
 }
