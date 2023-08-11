@@ -6628,6 +6628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   window: {fileID: 2097486736}
   cameraGameObject: {fileID: 963194227}
+  upgradesScrollRect: {fileID: 154666617}
 --- !u!223 &1172975566
 Canvas:
   m_ObjectHideFlags: 0
