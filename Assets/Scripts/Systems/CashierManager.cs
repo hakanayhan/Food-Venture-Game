@@ -50,16 +50,37 @@ public class CashierManager : MonoBehaviour
         {
             if (cashierStation.hasCustomer && !cashierStation.isReservedByCashier)
             {
+                List<CashierStateMachine> availableCashiers = new List<CashierStateMachine>();
                 foreach (CashierStateMachine cashier in cashiers)
                 {
                     if (cashier.isIdle)
                     {
-                        cashier.TakeOrder(cashierStation);
-                        return;
+                        availableCashiers.Add(cashier);
                     }
+                }
+                if(availableCashiers.Count != 0)
+                {
+                    CashierStateMachine closestCashier = GetClosestCashier(availableCashiers, cashierStation.CashierTransform);
+                    closestCashier.TakeOrder(cashierStation);
                 }
             }
         }
+    }
+    public CashierStateMachine GetClosestCashier(List<CashierStateMachine> cashiers, Transform targetObject)
+    {
+        CashierStateMachine closestCashier = null;
+        float minDist = Mathf.Infinity;
+        foreach (CashierStateMachine cashier in cashiers)
+        {
+            Transform t = cashier.gameObject.transform;
+            float dist = Vector3.Distance(t.position, targetObject.position);
+            if (dist < minDist)
+            {
+                closestCashier = cashier;
+                minDist = dist;
+            }
+        }
+        return closestCashier;
     }
 
     public bool areOrdersTaken()

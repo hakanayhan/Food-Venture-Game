@@ -38,26 +38,26 @@ public class CookManager : MonoBehaviour
         {
             if (!hasCooks) // if cashiers are used instead of cooks
             {
+                List<CashierStateMachine> availableCashiers = new List<CashierStateMachine>();
                 foreach (CashierStateMachine cashier in cashierManager.cashiers)
                 {
                     if (cashier.isIdle)
+                        availableCashiers.Add(cashier);
+                }
+                if (availableCashiers.Count != 0 && cashierManager.areOrdersTaken())
+                {
+                    foreach (Order pendingOrder in pendingOrders)
                     {
-                        if (cashierManager.areOrdersTaken()) {
-                            
-                            foreach (Order pendingOrder in pendingOrders)
-                            {
-                                Workstation availableWorkstation = FindAvailableWorkstation(pendingOrder.orderItem);
-                                if (availableWorkstation == null)
-                                    continue;
+                        Workstation availableWorkstation = FindAvailableWorkstation(pendingOrder.orderItem);
+                        if (availableWorkstation == null)
+                            continue;
 
-                                cashier.isIdle = false;
-                                cashier.cook.AssignWorkstation(availableWorkstation);
-                                cashier.cook.CookOrder(pendingOrder);
-                                //Debug.Log("pending orders" + pendingOrders.Count);
-                                pendingOrders.Remove(pendingOrder);
-                                return;
-                            }
-                        }
+                        CashierStateMachine closestCashier = CashierManager.Instance.GetClosestCashier(availableCashiers, availableWorkstation.CookTransform);
+                        closestCashier.isIdle = false;
+                        closestCashier.cook.AssignWorkstation(availableWorkstation);
+                        closestCashier.cook.CookOrder(pendingOrder);
+                        pendingOrders.Remove(pendingOrder);
+                        return;
                     }
                 }
             }
