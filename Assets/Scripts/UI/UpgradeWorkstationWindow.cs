@@ -88,7 +88,7 @@ public class UpgradeWorkstationWindow : Window
         if (rank > 6 && ranksCount > 6)
             colorHex = "#88DD4A";
 
-        progressBarFill.color = HexToColor(colorHex);
+        progressBarFill.color = Utility.HexToColor(colorHex);
         int fixedRanksCount = (ranksCount > 6) ? ranksCount - 5 : ranksCount;
         fixedRanksCount = (ranksCount > 6 && rank <= 6) ? 6 : fixedRanksCount;
         
@@ -102,7 +102,7 @@ public class UpgradeWorkstationWindow : Window
         float fixedRank = (rank > 6 && ranksCount > 6) ? rank - 5 : rank;
         for (int i = 0; i < fixedRank - 1; i++)
         {
-            starsList[i].GetComponent<Image>().color = HexToColor(colorHex);
+            starsList[i].GetComponent<Image>().color = Utility.HexToColor(colorHex);
         }
     }
 
@@ -136,14 +136,5 @@ public class UpgradeWorkstationWindow : Window
             LoadDataForWorkstationUpgrader(upgrader);
             Wallet.Instance.RefreshUI();
         }
-    }
-
-    private Color HexToColor(string hex)
-    {
-        hex = hex.Replace("#", "");
-        byte r = byte.Parse(hex.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
-        byte g = byte.Parse(hex.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
-        byte b = byte.Parse(hex.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
-        return new Color32(r, g, b, 255);
     }
 }
