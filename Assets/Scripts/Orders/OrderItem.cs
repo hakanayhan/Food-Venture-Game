@@ -18,6 +18,6 @@ public class OrderItem : ScriptableObject
 
     public Currency GetCost()
     {
-        return new Currency(itemBaseCost * Modifiers.Instance.GetOrderItemCostMultiplier(this));
+        return new Currency(itemBaseCost * Modifiers.Instance.GetOrderItemCostMultiplier(this) * EquippedItemsController.Instance.profitBoost);
     }
 }

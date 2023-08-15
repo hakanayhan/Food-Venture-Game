@@ -16,3 +16,5 @@ MonoBehaviour:
   itemName: Item2
   type: 1
   rarity: 0
+  featureType: 0
+  featureAmount: 10

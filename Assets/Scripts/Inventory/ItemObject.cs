@@ -13,6 +13,11 @@ public enum Rarity
     Common
 }
 
+public enum FeatureType
+{
+    IncreaseAllProfit
+}
+
 [CreateAssetMenu(fileName = "New Inventory Item", menuName = "Inventory/New Inventory Item")]
 public class ItemObject : ScriptableObject
 {
@@ -20,4 +25,6 @@ public class ItemObject : ScriptableObject
     public string itemName;
     public ItemType type;
     public Rarity rarity;
+    public FeatureType featureType;
+    public double featureAmount;
 }
