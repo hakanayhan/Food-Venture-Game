@@ -6,4 +6,7 @@ using UnityEngine;
 public class InventoryObject : ScriptableObject
 {
     public List<ItemObject> inventoryList = new List<ItemObject>();
+    public ItemObject equippedHat;
+    public ItemObject equippedApron;
+    public ItemObject equippedSpatula;
 }

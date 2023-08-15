@@ -42,4 +42,16 @@ public class InventoryListController : MonoBehaviour
             obj.transform.GetComponent<ItemController>().item = item;
         }
     }
+
+    public Color GetRarityColor(Rarity rarity)
+    {
+        if (rarity == Rarity.Common)
+        {
+            return Utility.HexToColor("5F82F3");
+        }
+        else
+        {
+            return Utility.HexToColor("D0D0D0");
+        }
+    }
 }
