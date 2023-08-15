@@ -89,10 +89,11 @@ public class Wallet : MonoBehaviour
             }
         }
 
-        OrderItem orderItem = UpgradeWorkstationWindow.Instance.upgrader.orderItem;
-        bool canAffordUpgrade = goldAmount >= Modifiers.Instance.GetUpgradeCost(orderItem);
-        bool canAffordUnlock = goldAmount >= Modifiers.Instance.GetUnlockCost(orderItem);
-        UpgradeWorkstationWindow.Instance.buttonObj.interactable = !Modifiers.Instance.GetIsMaxLv(orderItem) && canAffordUpgrade;
+        OrderItem upgradeOrderItem = UpgradeWorkstationWindow.Instance.upgrader.orderItem;
+        OrderItem unlockOrderItem = UnlockWorkstationWindow.Instance.upgrader.orderItem;
+        bool canAffordUpgrade = goldAmount >= Modifiers.Instance.GetUpgradeCost(upgradeOrderItem);
+        bool canAffordUnlock = goldAmount >= Modifiers.Instance.GetUnlockCost(unlockOrderItem);
+        UpgradeWorkstationWindow.Instance.buttonObj.interactable = !Modifiers.Instance.GetIsMaxLv(upgradeOrderItem) && canAffordUpgrade;
         UnlockWorkstationWindow.Instance.buttonObj.interactable = canAffordUnlock;
         RenovationWindow.Instance.CheckRenovationIcon();
     }
