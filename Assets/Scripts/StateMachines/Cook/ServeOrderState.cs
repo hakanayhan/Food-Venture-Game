@@ -5,9 +5,9 @@ using UnityEngine;
 // Cook State
 public class ServeOrderState : State
 {
-    CashierStateMachine stateMachine;
+    CookStateMachine stateMachine;
 
-    public ServeOrderState(CashierStateMachine stateMachine)
+    public ServeOrderState(CookStateMachine stateMachine, ChefStation chefStation)
     {
         this.stateMachine = stateMachine;
     }
@@ -16,7 +16,7 @@ public class ServeOrderState : State
     {
         //Debug.Log("Entering Serve Order State");
         Debug.Log("COOK: Served order");
-        stateMachine.cashierStation.ServeOrder(stateMachine.order);
+        stateMachine.chefStation.ServeOrder(stateMachine.order);
         stateMachine.isIdle = true;
         //stateMachine.SwitchState(new IdleState(stateMachine));
     }
