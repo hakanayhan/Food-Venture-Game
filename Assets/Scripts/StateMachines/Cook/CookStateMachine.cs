@@ -6,6 +6,7 @@ public class CookStateMachine : StateMachine
 {
     public Order order;
     [HideInInspector] public Workstation workstation;
+    [HideInInspector] public ChefStation chefStation;
     [HideInInspector] public CookManager cookManager;
     public RadialTimer radialTimer;
     public GameObject carriedItem;
