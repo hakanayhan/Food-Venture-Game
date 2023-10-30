@@ -37,6 +37,14 @@ public class CookOrderState : State
                 stateMachine.carriedItem.SetActive(true);
                 stateMachine.SwitchState(new MoveState(stateMachine, stateMachine.order.customer.cashierStation.CashierTransform, new FulfillOrderState(stateMachine.cashierStateMachine, stateMachine.order.customer.cashierStation)));
             }
+            else
+            {
+                stateMachine.carriedItem.GetComponent<MeshRenderer>().material = stateMachine.order.orderItem.itemMaterial;
+                stateMachine.carriedItem.SetActive(true);
+                ChefStation availableChefStation = CookManager.Instance.FindAvailableChefstation();
+                stateMachine.chefStation = availableChefStation;
+                stateMachine.SwitchState(new MoveState(stateMachine, availableChefStation.CookTransform, new ServeOrderState(stateMachine, availableChefStation)));
+            }
         }
     }
 
