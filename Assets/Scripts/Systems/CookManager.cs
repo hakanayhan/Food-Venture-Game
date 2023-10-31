@@ -139,7 +139,7 @@ public class CookManager : MonoBehaviour
     {
         foreach (ChefStation chefstation in chefstations)
         {
-            if (!chefstation.isReservedByCook)
+            if (!chefstation.isReservedByCook && !chefstation.hasOrder)
                 return chefstation;
         }
 
