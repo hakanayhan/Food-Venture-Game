@@ -18,6 +18,7 @@ public class ServeOrderState : State
         Debug.Log("COOK: Served order");
         stateMachine.chefStation.ServeOrder(stateMachine.order);
         stateMachine.isIdle = true;
+        stateMachine.carriedItem.SetActive(false);
         //stateMachine.SwitchState(new IdleState(stateMachine));
     }
 

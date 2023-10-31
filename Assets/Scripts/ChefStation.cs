@@ -5,6 +5,7 @@ using UnityEngine;
 public class ChefStation : MonoBehaviour
 {
     public Order order;
+    [SerializeField] private GameObject servedItem;
     public bool isReservedByCashier;
     public bool isReservedByCook;
     public Transform CashierTransform;
@@ -26,5 +27,7 @@ public class ChefStation : MonoBehaviour
     {
         this.order = order;
         hasOrder = true;
+        servedItem.GetComponent<MeshRenderer>().material = order.orderItem.itemMaterial;
+        servedItem.SetActive(true);
     }
 }
