@@ -41,6 +41,11 @@ public class UpgradesListItemController : MonoBehaviour
         {
             return upgrade.orderItem.itemName + " is made faster";
         }
+        else if (upgrade.feature == Upgrade.Features.addCook)
+        {
+            string s = (upgrade.addRate > 1) ? "s" : "";
+            return "+" + upgrade.addRate + " Cook" + s;
+        }
         return null;
     }
 
@@ -63,6 +68,10 @@ public class UpgradesListItemController : MonoBehaviour
             else if (upgrade.feature == Upgrade.Features.increaseSpeed)
             {
                 Modifiers.Instance.MultiplyCookTimeRatio(upgrade.orderItem, upgrade.multiplyRate);
+            }
+            else if (upgrade.feature == Upgrade.Features.addCook)
+            {
+                CookManager.Instance.maxCook += upgrade.addRate;
             }
             Destroy(this.gameObject);
         }

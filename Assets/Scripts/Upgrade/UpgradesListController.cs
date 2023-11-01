@@ -50,7 +50,7 @@ public class UpgradesListController : MonoBehaviour
     public Sprite icon;
     public string upgradeTitle;
     public double price;
-    public enum Features { addCashier, addCustomer, multiplyProfit, increaseSpeed }
+    public enum Features { addCashier, addCustomer, multiplyProfit, increaseSpeed, addCook }
     public Features feature;
     public float multiplyRate = 1;
     public float addRate = 0;
