@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b3928d38221511418a808154cb5c2f2, type: 3}
+  m_Name: RandomPosition_Cook
+  m_EditorClassIdentifier: 
+  minXRandomTransform: 0
+  maxXRandomTransform: 4
+  minYRandomTransform: 0
+  maxYRandomTransform: 0
+  minZRandomTransform: -1
+  maxZRandomTransform: 0
