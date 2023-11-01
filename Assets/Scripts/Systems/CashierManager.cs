@@ -11,6 +11,7 @@ public class CashierManager : MonoBehaviour
     [SerializeField] private RandomPosition _randomPos;
     public List<CashierStateMachine> cashiers = new List<CashierStateMachine>();
     public List<CashierStation> cashierStations = new List<CashierStation>();
+    public List<(Order, ChefStation chefStation, bool orderDelivered)> servedOrders = new List<(Order, ChefStation chefStation, bool orderDelivered)>();
     private float _currentCashier = 0;
     
     void Awake()
@@ -71,9 +72,11 @@ public class CashierManager : MonoBehaviour
 
     void DeliverOrders()
     {
-        foreach ((Order order, ChefStation chefStation) in CookManager.Instance.servedOrders)
+        for (int i = 0; i < servedOrders.Count; i++)
         {
-            if (!chefStation.isReservedByCashier && chefStation.hasOrder)
+            (Order order, ChefStation chefStation, bool orderDelivered) = servedOrders[i];
+
+            if (!orderDelivered && !chefStation.isReservedByCashier && chefStation.hasOrder)
             {
                 List<CashierStateMachine> availableCashiers = new List<CashierStateMachine>();
                 foreach (CashierStateMachine cashier in cashiers)
@@ -87,6 +90,7 @@ public class CashierManager : MonoBehaviour
                 {
                     CashierStateMachine closestCashier = GetClosestCashier(availableCashiers, chefStation.CashierTransform);
                     closestCashier.DeliverOrder(order, chefStation);
+                    servedOrders[i] = (order, chefStation, true);
                 }
             }
         }
