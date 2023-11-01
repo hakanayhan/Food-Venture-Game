@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChefStation : MonoBehaviour
 {
     public Order order;
-    [SerializeField] private GameObject servedItem;
+    public GameObject servedItem;
     public bool isReservedByCashier;
     public bool isReservedByCook;
     public Transform CashierTransform;

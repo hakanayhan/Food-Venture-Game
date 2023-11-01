@@ -7,6 +7,7 @@ public class CookManager : MonoBehaviour
     public static CookManager Instance;
     public bool hasCooks;
     public List<Order> pendingOrders = new List<Order>();
+    public List<(Order, ChefStation chefStation)> servedOrders = new List<(Order, ChefStation chefStation)>();
     List<CookStateMachine> cooks = new List<CookStateMachine>();
     public List<Workstation> workstations;
     public List<ChefStation> chefstations;

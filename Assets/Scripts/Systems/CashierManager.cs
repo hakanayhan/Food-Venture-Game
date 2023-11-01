@@ -34,6 +34,8 @@ public class CashierManager : MonoBehaviour
     void ManageOrders()
     {
         TakeAvailableOrders();
+        if(CookManager.Instance.hasCooks)
+            DeliverOrders();
     }
 
     private void SpawnNewCashier()
@@ -62,6 +64,29 @@ public class CashierManager : MonoBehaviour
                 {
                     CashierStateMachine closestCashier = GetClosestCashier(availableCashiers, cashierStation.CashierTransform);
                     closestCashier.TakeOrder(cashierStation);
+                }
+            }
+        }
+    }
+
+    void DeliverOrders()
+    {
+        foreach ((Order order, ChefStation chefStation) in CookManager.Instance.servedOrders)
+        {
+            if (!chefStation.isReservedByCashier && chefStation.hasOrder)
+            {
+                List<CashierStateMachine> availableCashiers = new List<CashierStateMachine>();
+                foreach (CashierStateMachine cashier in cashiers)
+                {
+                    if (cashier.isIdle)
+                    {
+                        availableCashiers.Add(cashier);
+                    }
+                }
+                if (availableCashiers.Count != 0)
+                {
+                    CashierStateMachine closestCashier = GetClosestCashier(availableCashiers, chefStation.CashierTransform);
+                    closestCashier.DeliverOrder(order, chefStation);
                 }
             }
         }

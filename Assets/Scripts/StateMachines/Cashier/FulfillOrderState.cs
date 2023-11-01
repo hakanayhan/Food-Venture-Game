@@ -20,8 +20,7 @@ public class FulfillOrderState : State
 
         cashierStation.FulfillOrder();
         //Debug.Log("CASH: Delivered Order to Cashierstation");
-        if (!stateMachine.cook.cookManager.hasCooks)
-            stateMachine.cook.carriedItem.SetActive(false);
+        stateMachine.cook.carriedItem.SetActive(false);
         stateMachine.SwitchState(new IdleState(stateMachine));
         cashierStation.customer.Pay();
         cashierStation.customer.CustomerExit();

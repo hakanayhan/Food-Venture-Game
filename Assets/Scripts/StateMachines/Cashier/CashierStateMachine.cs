@@ -25,4 +25,9 @@ public class CashierStateMachine : StateMachine
         SwitchState(new MoveState(this, cashierStation.CashierTransform, new TakeOrderState(this)));
     }
 
+    public void DeliverOrder(Order order, ChefStation chefStation)
+    {
+        chefStation.ReserveStation(this);
+        SwitchState(new MoveState(this, chefStation.CashierTransform, new TakeServedItemState(this, chefStation, order)));
+    }
 }
