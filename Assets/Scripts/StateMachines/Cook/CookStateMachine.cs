@@ -20,7 +20,8 @@ public class CookStateMachine : StateMachine
     {
         this.order = order;
         ChefStation availableChefStation = CookManager.Instance.FindAvailableChefstation();
-        CookManager.Instance.servedOrders.Add((order, availableChefStation));
+        availableChefStation.ReserveStation(this);
+        CashierManager.Instance.servedOrders.Add((order, availableChefStation, false));
         chefStation = availableChefStation;
         SwitchState(new MoveState(this, workstation.CookTransform, new CookOrderState(this, availableChefStation)));
     }
