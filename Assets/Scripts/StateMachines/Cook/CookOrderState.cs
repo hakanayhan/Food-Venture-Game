@@ -6,14 +6,12 @@ using UnityEngine;
 public class CookOrderState : State
 {
     CookStateMachine stateMachine;
-    ChefStation chefStation;
 
     float workTimer;
 
-    public CookOrderState(CookStateMachine stateMachine, ChefStation chefStation = null)
+    public CookOrderState(CookStateMachine stateMachine)
     {
         this.stateMachine = stateMachine;
-        this.chefStation = chefStation;
     }
 
     public override void Enter()
@@ -43,8 +41,7 @@ public class CookOrderState : State
             {
                 stateMachine.carriedItem.GetComponent<MeshRenderer>().material = stateMachine.order.orderItem.itemMaterial;
                 stateMachine.carriedItem.SetActive(true);
-                
-                stateMachine.SwitchState(new MoveState(stateMachine, chefStation.CookTransform, new ServeOrderState(stateMachine, chefStation)));
+                stateMachine.ServeOrder();
             }
         }
     }
