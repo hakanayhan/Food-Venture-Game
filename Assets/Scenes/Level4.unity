@@ -1412,56 +1412,63 @@ MonoBehaviour:
     orderItem: {fileID: 0}
   - icon: {fileID: 21300000, guid: 437515fdfc15f62489f10da6d4d207bb, type: 3}
     upgradeTitle: 
-    price: 400
+    price: 600
     feature: 2
     multiplyRate: 2
     addRate: 0
     orderItem: {fileID: 11400000, guid: 7676102718247fa4489e4a7865c567ca, type: 2}
   - icon: {fileID: 21300000, guid: 9089aba352b10954a838448a121b4761, type: 3}
     upgradeTitle: 
-    price: 600
+    price: 1000
     feature: 1
     multiplyRate: 0
     addRate: 1
     orderItem: {fileID: 0}
   - icon: {fileID: 21300000, guid: 9089aba352b10954a838448a121b4761, type: 3}
     upgradeTitle: 
-    price: 1000
-    feature: 0
+    price: 1600
+    feature: 4
     multiplyRate: 0
     addRate: 1
     orderItem: {fileID: 0}
   - icon: {fileID: 21300000, guid: 0d2a550f8f59f0146a316d3fd6357846, type: 3}
     upgradeTitle: 
-    price: 1500
+    price: 2200
     feature: 2
     multiplyRate: 2
     addRate: 0
     orderItem: {fileID: 11400000, guid: e348e87141da15949bb8d1a581b6044c, type: 2}
   - icon: {fileID: 21300000, guid: 9089aba352b10954a838448a121b4761, type: 3}
     upgradeTitle: 
-    price: 3000
+    price: 3500
     feature: 1
+    multiplyRate: 0
+    addRate: 1
+    orderItem: {fileID: 0}
+  - icon: {fileID: 21300000, guid: 9089aba352b10954a838448a121b4761, type: 3}
+    upgradeTitle: 
+    price: 5000
+    feature: 0
     multiplyRate: 0
     addRate: 1
     orderItem: {fileID: 0}
   - icon: {fileID: 21300000, guid: 617343bffbfde314ebd2246878de7069, type: 3}
     upgradeTitle: 
-    price: 5000
+    price: 7000
     feature: 2
     multiplyRate: 2
     addRate: 0
     orderItem: {fileID: 11400000, guid: add8a3bc606b4cd49a84613366bca706, type: 2}
   - icon: {fileID: 21300000, guid: 437515fdfc15f62489f10da6d4d207bb, type: 3}
     upgradeTitle: 
-    price: 7500
+    price: 8500
     feature: 3
     multiplyRate: 2
     addRate: 0
     orderItem: {fileID: 11400000, guid: 7676102718247fa4489e4a7865c567ca, type: 2}
   - icon: {fileID: 21300000, guid: 437515fdfc15f62489f10da6d4d207bb, type: 3}
     upgradeTitle: 
-    price: 15000
+    price: 20000
     feature: 2
     multiplyRate: 2
     addRate: 0
@@ -1469,6 +1476,13 @@ MonoBehaviour:
   - icon: {fileID: 21300000, guid: 9089aba352b10954a838448a121b4761, type: 3}
     upgradeTitle: 
     price: 25000
+    feature: 4
+    multiplyRate: 0
+    addRate: 1
+    orderItem: {fileID: 0}
+  - icon: {fileID: 21300000, guid: 9089aba352b10954a838448a121b4761, type: 3}
+    upgradeTitle: 
+    price: 35000
     feature: 1
     multiplyRate: 0
     addRate: 1
@@ -1482,28 +1496,28 @@ MonoBehaviour:
     orderItem: {fileID: 11400000, guid: e348e87141da15949bb8d1a581b6044c, type: 2}
   - icon: {fileID: 21300000, guid: 0d2a550f8f59f0146a316d3fd6357846, type: 3}
     upgradeTitle: 
-    price: 75000
+    price: 100000
     feature: 3
     multiplyRate: 2
     addRate: 0
     orderItem: {fileID: 11400000, guid: e348e87141da15949bb8d1a581b6044c, type: 2}
   - icon: {fileID: 21300000, guid: 9089aba352b10954a838448a121b4761, type: 3}
     upgradeTitle: 
-    price: 100000
+    price: 125000
     feature: 1
     multiplyRate: 0
     addRate: 1
     orderItem: {fileID: 0}
   - icon: {fileID: 21300000, guid: 9089aba352b10954a838448a121b4761, type: 3}
     upgradeTitle: 
-    price: 150000
+    price: 200000
     feature: 0
     multiplyRate: 0
     addRate: 1
     orderItem: {fileID: 0}
   - icon: {fileID: 21300000, guid: 617343bffbfde314ebd2246878de7069, type: 3}
     upgradeTitle: 
-    price: 250000
+    price: 300000
     feature: 2
     multiplyRate: 2
     addRate: 0
@@ -1511,34 +1525,41 @@ MonoBehaviour:
   - icon: {fileID: 21300000, guid: 9089aba352b10954a838448a121b4761, type: 3}
     upgradeTitle: 
     price: 500000
+    feature: 4
+    multiplyRate: 0
+    addRate: 1
+    orderItem: {fileID: 0}
+  - icon: {fileID: 21300000, guid: 9089aba352b10954a838448a121b4761, type: 3}
+    upgradeTitle: 
+    price: 750000
     feature: 1
     multiplyRate: 0
     addRate: 1
     orderItem: {fileID: 0}
   - icon: {fileID: 21300000, guid: 437515fdfc15f62489f10da6d4d207bb, type: 3}
     upgradeTitle: 
-    price: 1000000
+    price: 1200000
     feature: 2
     multiplyRate: 2
     addRate: 0
     orderItem: {fileID: 11400000, guid: 7676102718247fa4489e4a7865c567ca, type: 2}
   - icon: {fileID: 21300000, guid: 617343bffbfde314ebd2246878de7069, type: 3}
     upgradeTitle: 
-    price: 2500000
+    price: 3000000
     feature: 3
     multiplyRate: 2
     addRate: 0
     orderItem: {fileID: 11400000, guid: add8a3bc606b4cd49a84613366bca706, type: 2}
   - icon: {fileID: 21300000, guid: 0d2a550f8f59f0146a316d3fd6357846, type: 3}
     upgradeTitle: 
-    price: 5000000
+    price: 7000000
     feature: 2
     multiplyRate: 2
     addRate: 0
     orderItem: {fileID: 11400000, guid: e348e87141da15949bb8d1a581b6044c, type: 2}
   - icon: {fileID: 21300000, guid: 617343bffbfde314ebd2246878de7069, type: 3}
     upgradeTitle: 
-    price: 10000000
+    price: 15000000
     feature: 2
     multiplyRate: 2
     addRate: 0
@@ -1558,8 +1579,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c43d74e38c16044e823d82ee9aa3408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLv: 2
-  requiredGoldsToLevelUp: 5000000000
+  currentLv: 3
+  requiredGoldsToLevelUp: 10000000000
 --- !u!114 &103339154
 MonoBehaviour:
   m_ObjectHideFlags: 0
