@@ -49,14 +49,14 @@ public class CustomerStateMachine : StateMachine
     public void CustomerExit()
     {
         HideSpeechBubble();
-        SwitchState(new MoveState(this, customerManager.spawnPoint, new CustomerExitState(this)));
-    }
-    public void Despawn()
-    {
         cashierStation.hasCustomer = false;
         cashierStation.hasOrder = false;
         cashierStation.isReservedByCustomer = false;
         cashierStation.isReservedByCashier = false;
+        SwitchState(new MoveState(this, customerManager.spawnPoint, new CustomerExitState(this)));
+    }
+    public void Despawn()
+    {
         Destroy(gameObject);
         customerManager.customers.Remove(this);
     }
