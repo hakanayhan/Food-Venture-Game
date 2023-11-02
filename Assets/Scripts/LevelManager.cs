@@ -18,6 +18,12 @@ public class LevelManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F2))
+            UpgradeLevel();
+    }
+
     public void UpgradeLevel()
     {
         if (IsNextLvExist())
